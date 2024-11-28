@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ncnl.balayanexpensewise.controller.HomeController"
+            minHeight="0.0" minWidth="0.0" prefHeight="841.0" prefWidth="1296.0">
+<children>
+    <Label alignment="CENTER" layoutY="237.0" prefHeight="54.0" prefWidth="1301.0" text="their savings goals. Take charge of your finances and build a smarter path toward financial">
+        <font>
+            <Font name="Source Code Pro" size="12.0" />
+        </font>
+    </Label>
+    <Label layoutX="664.0" layoutY="261.0" prefHeight="54.0" prefWidth="159.0" text="(っ ͡❛ ω ͡❛)っ🎔">
+        <font>
+            <Font name="Source Code Pro" size="20.0" />
+        </font>
+    </Label>
+    <Label alignment="CENTER" layoutX="19.0" layoutY="82.0" prefHeight="83.0" prefWidth="1261.0" text="Welcome to Expense Wise">
+        <font>
+            <Font name="Roboto Black" size="69.0" />
+        </font>
+        <effect>
+            <DropShadow>
+                <color>
+                    <Color red="0.8421052694320679" green="0.7914230227470398" blue="0.7914230227470398" />
+                </color>
+            </DropShadow>
+        </effect>
+    </Label>
+    <Label alignment="CENTER" layoutX="-10.0" layoutY="155.0" prefHeight="54.0" prefWidth="1301.0" text="Balayan ExpenseWise is the ultimate SSC expense tracker designed to make student financial">
+        <font>
+            <Font name="Source Code Pro" size="12.0" />
+        </font>
+    </Label>
+    <Label alignment="CENTER" layoutX="-10.0" layoutY="174.0" prefHeight="54.0" prefWidth="1301.0" text="management simple and effective. Keep track of your daily expenses, plan budgets, and gain valuable">
+        <font>
+            <Font name="Source Code Pro" size="12.0" />
+        </font>
+    </Label>
+    <Label alignment="CENTER" layoutY="195.0" prefHeight="54.0" prefWidth="1301.0" text="insights into your spending habits. With a user-friendly interface and robust tracking features, Balayan">
+        <font>
+            <Font name="Source Code Pro" size="12.0" />
+        </font>
+    </Label>
+    <Label alignment="CENTER" layoutY="217.0" prefHeight="54.0" prefWidth="1301.0" text="ExpenseWise empowers students to make informed financial decisions, stay organized, and achieve">
+        <font>
+            <Font name="Source Code Pro" size="12.0" />
+        </font>
+    </Label>
+    <Label alignment="CENTER" layoutX="466.0" layoutY="261.0" prefHeight="54.0" prefWidth="206.0" text="independence with ease">
+        <font>
+            <Font name="Source Code Pro" size="12.0" />
+        </font>
+    </Label>
+    <JFXButton buttonType="RAISED" layoutX="520.0" layoutY="327.0" prefHeight="37.0" prefWidth="235.0" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-radius: 20px; -fx-background-radius: 20px;" text="Get Started">
+        <font>
+            <Font name="Source Code Pro" size="18.0" />
+        </font>
+    </JFXButton>
+    <Pane layoutX="59.0" layoutY="405.0" prefHeight="327.0" prefWidth="288.0" style="-fx-background-color: white;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <JFXButton buttonType="RAISED" layoutX="194.0" layoutY="288.0" style="-fx-background-color: #f2f2f2;" text="Check it out" />
+            <Label alignment="CENTER" layoutY="14.0" prefHeight="24.0" prefWidth="289.0" text="User-Friendly Interface">
+                <font>
+                    <Font name="Roboto Bold Condensed" size="15.0" />
+                </font>
+            </Label>
+            <Label alignment="CENTER" layoutY="58.0" prefHeight="24.0" prefWidth="289.0" text="lorem ipsum">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Pane layoutX="351.0" layoutY="405.0" prefHeight="327.0" prefWidth="288.0" style="-fx-background-color: white;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <JFXButton buttonType="RAISED" layoutX="194.0" layoutY="288.0" style="-fx-background-color: #f2f2f2;" text="Check it out" />
+            <Label alignment="CENTER" layoutX="-3.0" layoutY="15.0" prefHeight="24.0" prefWidth="289.0" text="Real-Time Analysis">
+                <font>
+                    <Font name="Roboto Bold Condensed" size="15.0" />
+                </font>
+            </Label>
+            <Label alignment="CENTER" layoutY="59.0" prefHeight="24.0" prefWidth="289.0" text="lorem ipsum">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Pane layoutX="643.0" layoutY="405.0" prefHeight="327.0" prefWidth="288.0" style="-fx-background-color: white;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <JFXButton buttonType="RAISED" layoutX="194.0" layoutY="288.0" style="-fx-background-color: #f2f2f2;" text="Check it out" />
+            <Label alignment="CENTER" layoutY="15.0" prefHeight="24.0" prefWidth="289.0" text="Handle Reports">
+                <font>
+                    <Font name="Roboto Bold Condensed" size="15.0" />
+                </font>
+            </Label>
+            <Label alignment="CENTER" layoutY="61.0" prefHeight="24.0" prefWidth="289.0" text="lorem ipsum">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Pane layoutX="936.0" layoutY="405.0" prefHeight="327.0" prefWidth="288.0" style="-fx-background-color: white;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <JFXButton buttonType="RAISED" layoutX="194.0" layoutY="288.0" style="-fx-background-color: #f2f2f2;" text="Check it out" />
+            <Label alignment="CENTER" layoutY="14.0" prefHeight="24.0" prefWidth="289.0" text="Manage Organizations">
+                <font>
+                    <Font name="Roboto Bold Condensed" size="15.0" />
+                </font>
+            </Label>
+            <Label alignment="CENTER" layoutY="63.0" prefHeight="24.0" prefWidth="289.0" text="lorem ipsum">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+</children>
+</AnchorPane>

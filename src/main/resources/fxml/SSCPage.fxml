@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="180.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ncnl.balayanexpensewise.controller.SSCController">
+    <children>
+        <Pane layoutX="8.0" layoutY="14.0" prefHeight="98.0" prefWidth="233.0" style="-fx-background-color: #ffff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <Label fx:id="currentDate" alignment="CENTER" layoutX="-2.0" layoutY="7.0" prefHeight="39.0" prefWidth="237.0" text="Month-Day-Year">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="30.0" />
+                    </font>
+                </Label>
+                <Label fx:id="currentTime" alignment="CENTER" layoutX="-2.0" layoutY="48.0" prefHeight="39.0" prefWidth="237.0" text="00:00">
+                    <font>
+                        <Font name="JetBrains Mono ExtraLight" size="30.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="8.0" layoutY="221.0" prefHeight="598.0" prefWidth="393.0" style="-fx-background-color: #ffff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <BarChart fx:id="monthlyChart" alternativeRowFillVisible="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="14.0" layoutY="16.0" legendVisible="false" prefHeight="573.0" prefWidth="361.0" style="-fx-background-color: #ffff; -fx-border-color: #ffff;" title="Monthly Transaction" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.8199999928474426" green="0.7954000234603882" blue="0.7954000234603882" opacity="0.5419847369194031" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                </BarChart>
+            </children>
+        </Pane>
+        <Pane layoutX="411.0" layoutY="221.0" prefHeight="96.0" prefWidth="231.0" style="-fx-background-color: #ffff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <Circle fill="#ffae00" layoutX="202.0" layoutY="73.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                <Label fx:id="budgetSSC" layoutX="14.0" layoutY="34.0" prefHeight="49.0" prefWidth="166.0" text="SSC" textFill="#ffb200">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="25.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="24.0" prefWidth="53.0" text="SSC ">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="249.0" layoutY="14.0" prefHeight="200.0" prefWidth="1020.0" style="-fx-background-color: #ffff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <Label fx:id="academicYearLbl" layoutX="23.0" layoutY="12.0" prefHeight="24.0" prefWidth="252.0" text="Expense Chart">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="18.0" />
+                    </font>
+                </Label>
+                <AreaChart fx:id="yearlyChart" alternativeRowFillVisible="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="19.0" layoutY="39.0" legendVisible="false" prefHeight="161.0" prefWidth="987.0" style="-fx-background-color: #ffff;" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM">
+                            <tickLabelFill>
+                                <LinearGradient endX="1.0" endY="1.0">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="1.0" green="1.0" blue="1.0" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </tickLabelFill>
+                        </CategoryAxis>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                </AreaChart>
+            </children>
+        </Pane>
+        <Pane layoutX="411.0" layoutY="326.0" prefHeight="85.0" prefWidth="859.0" style="-fx-background-color: #ffff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+            <Pane layoutX="356.0" layoutY="25.0" prefHeight="39.0" prefWidth="53.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <Label alignment="CENTER" layoutX="-4.0" layoutY="2.0" prefHeight="34.0" prefWidth="63.0" text="0">
+                     <font>
+                        <Font name="Roboto Bold Condensed" size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label alignment="CENTER" layoutX="184.0" layoutY="26.0" prefHeight="34.0" prefWidth="183.0" text="Admin Inbox">
+               <font>
+                  <Font name="Roboto Bold Condensed" size="28.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="450.0" layoutY="27.0" prefHeight="34.0" prefWidth="183.0" text="User Inbox">
+               <font>
+                  <Font name="Roboto Bold Condensed" size="28.0" />
+               </font>
+            </Label>
+            <Line endX="79.0" layoutX="115.0" layoutY="45.0" startX="-100.0" />
+            <Line endX="79.0" layoutX="772.0" layoutY="46.0" startX="-100.0" />
+            <Line endX="-22.0" layoutX="493.0" layoutY="46.0" startX="-68.0" />
+            <Pane layoutX="611.0" layoutY="25.0" prefHeight="39.0" prefWidth="53.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <children>
+                  <Label alignment="CENTER" layoutX="-4.0" layoutY="2.0" prefHeight="34.0" prefWidth="63.0" text="0">
+                     <font>
+                        <Font name="Roboto Bold Condensed" size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            </children>
+        </Pane>
+        <Pane layoutX="415.0" layoutY="422.0" prefHeight="398.0" prefWidth="855.0" style="-fx-background-color: #ffff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <JFXButton fx:id="submitBtn" buttonType="RAISED" layoutX="235.0" layoutY="283.0" onAction="#handleSubmit" prefHeight="32.0" prefWidth="192.0" style="-fx-background-color: #111010;" text="Submit" textFill="WHITE" />
+                <JFXButton fx:id="resetBtn" buttonType="RAISED" layoutX="433.0" layoutY="282.0" onAction="#clearFields" prefHeight="32.0" prefWidth="192.0" style="-fx-background-color: #fff;" text="Reset" />
+                <TextField fx:id="nameFieldR5" layoutX="39.0" layoutY="225.0" prefHeight="25.0" prefWidth="268.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                    <font>
+                        <Font name="Source Code Pro" size="12.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="quantityR5" layoutX="314.0" layoutY="225.0" prefHeight="25.0" prefWidth="86.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </TextField>
+                <TextField fx:id="priceR5" layoutX="407.0" layoutY="225.0" prefHeight="25.0" prefWidth="146.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </TextField>
+                <ComboBox fx:id="categoryR5" layoutX="566.0" layoutY="225.0" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #fff;" visibleRowCount="3">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </ComboBox>
+                <Label alignment="CENTER" layoutX="14.0" layoutY="8.0" prefHeight="24.0" prefWidth="102.0" text="Transactions">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="18.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="39.0" layoutY="41.0" opacity="0.38" prefHeight="24.0" prefWidth="148.0" text="Product/Service">
+                    <font>
+                        <Font name="Source Code Pro Bold" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="309.0" layoutY="41.0" opacity="0.38" prefHeight="24.0" prefWidth="148.0" text="Quantity">
+                    <font>
+                        <Font name="Source Code Pro Bold" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="461.0" layoutY="41.0" opacity="0.38" prefHeight="24.0" prefWidth="148.0" text="Price">
+                    <font>
+                        <Font name="Source Code Pro Bold" size="15.0" />
+                    </font>
+                </Label>
+                <Label layoutX="563.0" layoutY="41.0" opacity="0.38" prefHeight="24.0" prefWidth="95.0" text="Category">
+                    <font>
+                        <Font name="Source Code Pro Bold" size="15.0" />
+                    </font>
+                </Label>
+                <ProgressBar fx:id="progressbarCompletion" layoutX="235.0" layoutY="352.0" prefHeight="18.0" prefWidth="397.0" progress="0.0" />
+                <Label alignment="CENTER" layoutX="237.0" layoutY="327.0" prefHeight="24.0" prefWidth="394.0" text="You need to fill at least one row to submit">
+                    <font>
+                        <Font name="Source Code Pro Black" size="13.0" />
+                    </font>
+                </Label>
+            <TextField fx:id="nameFieldR1" layoutX="41.0" layoutY="74.0" prefHeight="25.0" prefWidth="268.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="Source Code Pro" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="quantityR1" layoutX="316.0" layoutY="74.0" prefHeight="25.0" prefWidth="86.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="priceR1" layoutX="410.0" layoutY="74.0" prefHeight="25.0" prefWidth="146.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <ComboBox fx:id="categoryR1" layoutX="568.0" layoutY="74.0" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #fff;" visibleRowCount="3">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <TextField fx:id="nameFieldR2" layoutX="39.0" layoutY="113.0" prefHeight="25.0" prefWidth="268.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="Source Code Pro" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="quantityR2" layoutX="314.0" layoutY="113.0" prefHeight="25.0" prefWidth="86.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="priceR2" layoutX="408.0" layoutY="113.0" prefHeight="25.0" prefWidth="146.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <ComboBox fx:id="categoryR2" layoutX="566.0" layoutY="113.0" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #fff;" visibleRowCount="3">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <TextField fx:id="nameFieldR3" layoutX="39.0" layoutY="151.0" prefHeight="25.0" prefWidth="268.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="Source Code Pro" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="quantityR3" layoutX="314.0" layoutY="151.0" prefHeight="25.0" prefWidth="86.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="priceR3" layoutX="408.0" layoutY="151.0" prefHeight="25.0" prefWidth="146.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <ComboBox fx:id="categoryR3" layoutX="566.0" layoutY="151.0" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #fff;" visibleRowCount="3">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <TextField fx:id="nameFieldR4" layoutX="39.0" layoutY="189.0" prefHeight="25.0" prefWidth="268.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+               <font>
+                  <Font name="Source Code Pro" size="12.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="quantityR4" layoutX="314.0" layoutY="189.0" prefHeight="25.0" prefWidth="86.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="priceR4" layoutX="408.0" layoutY="187.0" prefHeight="25.0" prefWidth="146.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <ComboBox fx:id="categoryR4" layoutX="566.0" layoutY="189.0" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #fff;" visibleRowCount="3">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <Label layoutX="669.0" layoutY="41.0" opacity="0.38" prefHeight="24.0" prefWidth="102.0" text="Department">
+               <font>
+                  <Font name="Source Code Pro Bold" size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="departmentR1" layoutX="670.0" layoutY="74.0" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #fff;" visibleRowCount="3">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <ComboBox fx:id="departmentR2" layoutX="670.0" layoutY="113.0" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #fff;" visibleRowCount="3">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <ComboBox fx:id="departmentR3" layoutX="670.0" layoutY="151.0" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #fff;" visibleRowCount="3">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <ComboBox fx:id="departmentR4" layoutX="670.0" layoutY="189.0" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #fff;" visibleRowCount="3">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <ComboBox fx:id="departmentR5" layoutX="670.0" layoutY="225.0" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #fff;" visibleRowCount="3">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            </children>
+        </Pane>
+        <Pane layoutX="8.0" layoutY="116.0" prefHeight="98.0" prefWidth="233.0" style="-fx-background-color: #ffff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <Label alignment="CENTER" layoutX="-1.0" layoutY="6.0" prefHeight="24.0" prefWidth="86.0" text="Category">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="18.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="monthCategory" layoutX="10.0" layoutY="49.0" prefHeight="25.0" prefWidth="86.0" promptText="Month" style="-fx-background-color: #fff;" visibleRowCount="3">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </ComboBox>
+            <ComboBox fx:id="periodCategory" layoutX="103.0" layoutY="49.0" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: #fff;" visibleRowCount="3">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            </children>
+        </Pane>
+        <Pane layoutX="652.0" layoutY="221.0" prefHeight="96.0" prefWidth="231.0" style="-fx-background-color: #ffff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <Circle fill="#005cff" layoutX="202.0" layoutY="73.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                <Label fx:id="budgetCICS" layoutX="14.0" layoutY="34.0" prefHeight="49.0" prefWidth="166.0" text="CICS" textFill="#005cff">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="25.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="6.0" layoutY="8.0" prefHeight="24.0" prefWidth="53.0" text="CICS">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="891.0" layoutY="221.0" prefHeight="96.0" prefWidth="231.0" style="-fx-background-color: #ffff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <Circle fill="#d000ff" layoutX="202.0" layoutY="73.0" radius="15.0" stroke="BLACK" strokeType="INSIDE" />
+                <Label fx:id="budgetCET" layoutX="14.0" layoutY="34.0" prefHeight="49.0" prefWidth="166.0" text="CET" textFill="#cd03ff">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="25.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" layoutX="2.0" layoutY="8.0" prefHeight="24.0" prefWidth="53.0" text="CET">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="18.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="1128.0" layoutY="221.0" prefHeight="96.0" prefWidth="142.0" style="-fx-background-color: #ffff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <Label layoutX="14.0" layoutY="34.0" prefHeight="49.0" prefWidth="69.0" textFill="#cd03ff">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="25.0" />
+                    </font>
+                </Label>
+                <Label layoutX="9.0" layoutY="7.0" prefHeight="24.0" prefWidth="109.0" text="Next Event">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="18.0" />
+                    </font>
+                </Label>
+                <Label fx:id="nextEventDate" layoutX="13.0" layoutY="45.0" prefHeight="24.0" prefWidth="122.0" text="Date">
+                    <font>
+                        <Font name="Roboto Bold Condensed" size="25.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ncnl.balayanexpensewise.controller.LoginController">
+    <effect>
+        <DropShadow height="1.0" radius="0.0" width="0.0" />
+    </effect>
+    <cursor>
+        <Cursor fx:constant="DEFAULT" />
+    </cursor>
+    <AnchorPane prefHeight="662.0" prefWidth="544.0" />
+    <Label fx:id="loginLabel" alignment="CENTER" layoutX="1.0" layoutY="135.0" prefHeight="63.0" prefWidth="544.0" text="Login">
+        <font>
+            <Font name="Roboto Black" size="51.0" />
+        </font>
+    </Label>
+    <TextField fx:id="srcodeTxt" alignment="CENTER" layoutX="121.0" layoutY="253.0" prefHeight="26.0" prefWidth="301.0" promptText="20-12345@g.batstate-u.edu.ph" style="-fx-background-color: white;">
+        <effect>
+            <DropShadow>
+                <color>
+                    <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" opacity="0.7300000190734863" />
+                </color>
+            </DropShadow>
+        </effect>
+    </TextField>
+    <Line endX="262.0" layoutX="195.0" layoutY="228.0" startX="-100.0" />
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="289.0" prefHeight="19.0" prefWidth="301.0" text="Srcode">
+        <font>
+            <Font name="Source Code Pro Bold" size="14.0" />
+        </font>
+    </Label>
+    <PasswordField fx:id="passwordTxt" alignment="CENTER" layoutX="121.0" layoutY="317.0" prefHeight="26.0" prefWidth="301.0" promptText="Enter your Password" style="-fx-background-color: white;">
+        <effect>
+            <DropShadow>
+                <color>
+                    <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" opacity="0.7300000190734863" />
+                </color>
+            </DropShadow>
+        </effect>
+    </PasswordField>
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="121.0" layoutY="357.0" prefHeight="19.0" prefWidth="301.0" text="Password">
+        <font>
+            <Font name="Source Code Pro Bold" size="14.0" />
+        </font>
+    </Label>
+    <Line endX="262.0" layoutX="193.0" layoutY="392.0" startX="-100.0" />
+    <JFXButton fx:id="loginBtn" buttonType="RAISED" disable="true" layoutX="127.0" layoutY="420.0" onAction="#loginUser" prefHeight="30.0" prefWidth="142.0" style="-fx-background-color: #FF2400;" text="Login" textFill="#f8f1f1" />
+    <JFXButton fx:id="cancelBtn" buttonType="RAISED" layoutX="277.0" layoutY="420.0" onAction="#userExit" prefHeight="30.0" prefWidth="142.0" ripplerFill="#eee9e9" style="-fx-background-color: gray;" text="Cancel" />
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="458.0" prefHeight="19.0" prefWidth="268.0" text="Not signed in? register">
+        <font>
+          <Font name="Source Code Pro Bold" size="10.0" />
+        </font>
+    </Label>
+    <Hyperlink fx:id="goToSignupLink" layoutX="331.0" layoutY="458.0" onAction="#goToSignup" text="here" textFill="RED">
+        <font>
+          <Font name="Source Code Pro Bold" size="10.0" />
+        </font>
+    </Hyperlink>
+     <ImageView fitHeight="672.0" fitWidth="447.0" layoutX="543.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="@../images/bsuImgSignup.png" />
+     </ImageView>
+     <Pane layoutX="543.0" opacity="0.37" prefHeight="663.0" prefWidth="447.0" style="-fx-background-color: #E70000;" />
+</AnchorPane>

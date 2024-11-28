@@ -1,0 +1,39 @@
+
+.tab-pane {
+    -fx-padding: 10px;
+    -fx-background-color: #f9f9f9;
+}
+
+
+.tab-header-area {
+    -fx-padding: 10px;
+    -fx-background-color: #F45050;
+    -fx-border-color: transparent;
+}
+
+.tab {
+    -fx-padding: 5px 20px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-radius: 0;
+    position: relative;
+}
+
+.tab:hover {
+    -fx-background-color: #808080;
+    -fx-text-fill: white;
+}
+
+
+.tab:focused {
+    -fx-border-color: red;
+    -fx-background-color: transparent;
+}
+
+.tab:selected {
+    -fx-border-color: red;
+    -fx-background-color: transparent;
+}

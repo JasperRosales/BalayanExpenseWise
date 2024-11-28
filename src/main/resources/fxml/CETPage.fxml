@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="740.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ncnl.balayanexpensewise.controller.CETController">
+    <children>
+        <Pane layoutX="7.0" layoutY="113.0" prefHeight="245.0" prefWidth="387.0" style="-fx-background-color: #fff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <PieChart fx:id="chartCET" layoutX="40.0" layoutY="17.0" prefHeight="214.0" prefWidth="307.0" style="-fx-background-color: white;" title="Transaction Chart" />
+            </children>
+        </Pane>
+        <Pane layoutX="803.0" layoutY="14.0" prefHeight="167.0" prefWidth="464.0" style="-fx-background-color: #fff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <BarChart fx:id="barCET" alternativeRowFillVisible="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="16.0" layoutY="14.0" prefHeight="157.0" prefWidth="433.0" title="Monthly Trransaction" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                </BarChart>
+            </children>
+        </Pane>
+        <Pane layoutX="803.0" layoutY="193.0" prefHeight="165.0" prefWidth="464.0" style="-fx-background-color: #fff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <Label layoutX="14.0" layoutY="9.0" text="Categories">
+                    <font>
+                        <Font name="Roboto Black" size="14.0" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="comboBoxDateTime" layoutX="48.0" layoutY="60.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: #fff;">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </ComboBox>
+                <ComboBox fx:id="comboBoxTransaction" layoutX="48.0" layoutY="116.0" prefHeight="25.0" prefWidth="377.0" style="-fx-background-color: #fff;">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </ComboBox>
+                <Label layoutX="48.0" layoutY="38.0" opacity="0.64" text="Month">
+                    <font>
+                        <Font name="Source Code Pro Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="48.0" layoutY="92.0" opacity="0.64" text="Product / Service">
+                    <font>
+                        <Font name="Source Code Pro Bold" size="12.0" />
+                    </font>
+                </Label>
+            <ComboBox fx:id="comboBoxPeriod" layoutX="240.0" layoutY="60.0" prefHeight="25.0" prefWidth="183.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <Label layoutX="240.0" layoutY="38.0" opacity="0.64" text="Period">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
+            </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="402.0" layoutY="14.0" prefHeight="344.0" prefWidth="387.0" style="-fx-background-color: #fff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <LineChart fx:id="lineCET" alternativeRowFillVisible="false" createSymbols="false" horizontalGridLinesVisible="false" horizontalZeroLineVisible="false" layoutX="7.0" layoutY="28.0" prefHeight="289.0" prefWidth="369.0" title="Yearly Transaction" verticalGridLinesVisible="false" verticalZeroLineVisible="false">
+                    <xAxis>
+                        <CategoryAxis side="BOTTOM" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis side="LEFT" />
+                    </yAxis>
+                </LineChart>
+            </children>
+        </Pane>
+        <Pane layoutX="14.0" layoutY="375.0" prefHeight="344.0" prefWidth="638.0" style="-fx-background-color: #fff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <Label layoutX="20.0" layoutY="14.0" text="Recent Transactions">
+                    <font>
+                        <Font name="Roboto Black" size="14.0" />
+                    </font>
+                </Label>
+            <Pane layoutX="20.0" layoutY="59.0" prefHeight="30.0" prefWidth="605.0" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-radius: 30px; -fx-background-radius: 30px;">
+               <children>
+                  <Label fx:id="cetNameR1" layoutX="24.0" layoutY="7.0" prefHeight="17.0" prefWidth="195.0" text="Product/Service" />
+                  <Label fx:id="cetAmountR1" layoutX="230.0" layoutY="6.0" prefHeight="17.0" prefWidth="109.0" text="Amount" />
+                  <Label fx:id="cetPriceR1" layoutX="348.0" layoutY="6.0" prefHeight="17.0" prefWidth="109.0" text="Price" />
+                  <Label fx:id="cetBudgetR1" layoutX="470.0" layoutY="7.0" prefHeight="17.0" prefWidth="127.0" text="Subtraction of Budget" />
+               </children>
+            </Pane>
+            <Pane layoutX="17.0" layoutY="116.0" prefHeight="30.0" prefWidth="605.0" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-radius: 30px; -fx-background-radius: 30px;">
+               <children>
+                  <Label fx:id="cetNameR2" layoutX="24.0" layoutY="6.0" prefHeight="17.0" prefWidth="195.0" text="Product/Service" />
+                  <Label fx:id="cetAmountR2" layoutX="230.0" layoutY="6.0" prefHeight="17.0" prefWidth="109.0" text="Amount" />
+                  <Label fx:id="cetPriceR2" layoutX="348.0" layoutY="6.0" prefHeight="17.0" prefWidth="109.0" text="Price" />
+                  <Label fx:id="cetBudgetR2" layoutX="470.0" layoutY="7.0" prefHeight="17.0" prefWidth="127.0" text="Subtraction of Budget" />
+               </children>
+            </Pane>
+            <Pane layoutX="17.0" layoutY="172.0" prefHeight="30.0" prefWidth="605.0" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-radius: 30px; -fx-background-radius: 30px;">
+               <children>
+                  <Label fx:id="cetNameR3" layoutX="24.0" layoutY="6.0" prefHeight="17.0" prefWidth="195.0" text="Product/Service" />
+                  <Label fx:id="cetAmountR3" layoutX="230.0" layoutY="6.0" prefHeight="17.0" prefWidth="109.0" text="Amount" />
+                  <Label fx:id="cetPriceR3" layoutX="348.0" layoutY="6.0" prefHeight="17.0" prefWidth="109.0" text="Price" />
+                  <Label fx:id="cetBudgetR3" layoutX="470.0" layoutY="7.0" prefHeight="17.0" prefWidth="127.0" text="Subtraction of Budget" />
+               </children>
+            </Pane>
+            <Pane layoutX="17.0" layoutY="228.0" prefHeight="30.0" prefWidth="605.0" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-radius: 30px; -fx-background-radius: 30px;">
+               <children>
+                  <Label fx:id="cetNameR4" layoutX="24.0" layoutY="6.0" prefHeight="17.0" prefWidth="195.0" text="Product/Service" />
+                  <Label fx:id="cetAmountR4" layoutX="230.0" layoutY="6.0" prefHeight="17.0" prefWidth="109.0" text="Amount" />
+                  <Label fx:id="cetPriceR4" layoutX="348.0" layoutY="6.0" prefHeight="17.0" prefWidth="109.0" text="Price" />
+                  <Label fx:id="cetBudgetR4" layoutX="470.0" layoutY="7.0" prefHeight="17.0" prefWidth="127.0" text="Subtraction of Budget" />
+               </children>
+            </Pane>
+            <Pane layoutX="17.0" layoutY="283.0" prefHeight="30.0" prefWidth="605.0" style="-fx-background-color: #fff; -fx-border-color: black; -fx-border-radius: 30px; -fx-background-radius: 30px;">
+               <children>
+                  <Label fx:id="cetNameR5" layoutX="24.0" layoutY="6.0" prefHeight="17.0" prefWidth="195.0" text="Product/Service" />
+                  <Label fx:id="cetAmountR5" layoutX="230.0" layoutY="6.0" prefHeight="17.0" prefWidth="109.0" text="Amount" />
+                  <Label fx:id="cetPriceR5" layoutX="348.0" layoutY="6.0" prefHeight="17.0" prefWidth="109.0" text="Price" />
+                  <Label fx:id="cetBudgetR5" layoutX="470.0" layoutY="7.0" prefHeight="17.0" prefWidth="127.0" text="Subtraction of Budget" />
+               </children>
+            </Pane>
+                <Label layoutX="40.0" layoutY="41.0" opacity="0.64" text="Description">
+                    <font>
+                        <Font name="Source Code Pro Bold" size="12.0" />
+                    </font>
+                </Label>
+            <Label layoutX="250.0" layoutY="41.0" opacity="0.64" text="Amount">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="363.0" layoutY="41.0" opacity="0.64" text="Price">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="488.0" layoutY="41.0" opacity="0.64" text="Budget">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
+            </Label>
+            </children>
+        </Pane>
+        <Pane layoutX="665.0" layoutY="375.0" prefHeight="344.0" prefWidth="602.0" style="-fx-background-color: #fff;">
+            <effect>
+                <DropShadow />
+            </effect>
+            <children>
+                <Label layoutX="291.0" layoutY="37.0" opacity="0.64" text="Quantity">
+                    <font>
+                        <Font name="Source Code Pro Bold" size="12.0" />
+                    </font>
+                </Label>
+                <Label layoutX="390.0" layoutY="37.0" opacity="0.64" text="Price">
+                    <font>
+                        <Font name="Source Code Pro Bold" size="12.0" />
+                    </font>
+                </Label>
+                <JFXButton fx:id="submitBtn" buttonType="RAISED" layoutX="372.0" layoutY="278.0" onAction="#handleSubmit" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: black;" text="Submit" textFill="WHITE" />
+                <JFXButton fx:id="resetBtn" buttonType="RAISED" layoutX="472.0" layoutY="278.0" onAction="#clearFields" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #fff;" text="Reset" />
+                <ProgressBar fx:id="progressBarCET" layoutX="51.0" layoutY="292.0" prefHeight="18.0" prefWidth="269.0" progress="0.0">
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </ProgressBar>
+                <Label layoutX="74.0" layoutY="268.0" text="Fill at least one row to submit">
+                    <font>
+                        <Font name="Source Code Pro Black Italic" size="12.0" />
+                    </font>
+                </Label>
+            <Label layoutX="27.0" layoutY="37.0" opacity="0.64" text="Product/Service">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="487.0" layoutY="37.0" opacity="0.64" text="Category">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="14.0" text="Recent Transactions">
+               <font>
+                  <Font name="Roboto Black" size="14.0" />
+               </font>
+            </Label>
+            <TextField fx:id="fieldCETNameR1" layoutX="27.0" layoutY="56.0" prefHeight="25.0" prefWidth="256.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="fieldCETAmountR1" layoutX="292.0" layoutY="55.0" prefHeight="25.0" prefWidth="94.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="fieldCETPriceR1" layoutX="395.0" layoutY="55.0" prefHeight="25.0" prefWidth="94.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <ComboBox fx:id="categoryCETR1" layoutX="495.0" layoutY="54.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <TextField fx:id="fieldCETNameR2" layoutX="27.0" layoutY="101.0" prefHeight="25.0" prefWidth="256.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="fieldCETAmountR2" layoutX="292.0" layoutY="101.0" prefHeight="25.0" prefWidth="94.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="fieldCETPriceR2" layoutX="395.0" layoutY="101.0" prefHeight="25.0" prefWidth="94.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <ComboBox fx:id="categoryCETR2" layoutX="495.0" layoutY="101.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <TextField fx:id="fieldCETNameR3" layoutX="27.0" layoutY="138.0" prefHeight="25.0" prefWidth="256.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="fieldCETAmountR3" layoutX="292.0" layoutY="138.0" prefHeight="25.0" prefWidth="94.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="fieldCETPriceR3" layoutX="395.0" layoutY="138.0" prefHeight="25.0" prefWidth="94.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <ComboBox fx:id="categoryCETR3" layoutX="495.0" layoutY="138.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <TextField fx:id="fieldCETNameR4" layoutX="27.0" layoutY="178.0" prefHeight="25.0" prefWidth="256.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="fieldCETAmountR4" layoutX="292.0" layoutY="177.0" prefHeight="25.0" prefWidth="94.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="fieldCETPriceR4" layoutX="395.0" layoutY="177.0" prefHeight="25.0" prefWidth="94.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <ComboBox fx:id="categoryCETR4" layoutX="495.0" layoutY="176.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            <TextField fx:id="fieldCETNameR5" layoutX="27.0" layoutY="216.0" prefHeight="25.0" prefWidth="256.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="fieldCETAmountR5" layoutX="292.0" layoutY="215.0" prefHeight="25.0" prefWidth="94.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="fieldCETPriceR5" layoutX="395.0" layoutY="215.0" prefHeight="25.0" prefWidth="94.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <ComboBox fx:id="categoryCETR5" layoutX="495.0" layoutY="215.0" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ComboBox>
+            </children>
+        </Pane>
+      <Pane layoutX="7.0" layoutY="14.0" prefHeight="91.0" prefWidth="387.0" style="-fx-background-color: #fff;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="Budget">
+               <font>
+                  <Font name="Roboto Black" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="budgetCET" alignment="CENTER" layoutX="-1.0" layoutY="33.0" prefHeight="29.0" prefWidth="387.0" text="0.00">
+               <font>
+                  <Font name="Roboto Black" size="30.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="194.0" layoutY="71.0" startX="-100.0" />
+         </children>
+      </Pane>
+    </children>
+
+
+</AnchorPane>

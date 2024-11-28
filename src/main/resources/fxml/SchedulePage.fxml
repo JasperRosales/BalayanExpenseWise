@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ncnl.balayanexpensewise.controller.ScheduleController">
+<children>
+    <Pane layoutX="306.0" layoutY="20.0" prefHeight="39.0" prefWidth="969.0" style="-fx-background-color: Black;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <Label alignment="CENTER" prefHeight="40.0" prefWidth="970.0" text="Event Schedule" textFill="WHITE">
+                <font>
+                    <Font name="Roboto Black" size="24.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Pane layoutX="308.0" layoutY="65.0" prefHeight="674.0" prefWidth="967.0" style="-fx-background-color: #fff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <TableView fx:id="schedTable" layoutX="21.0" layoutY="24.0" prefHeight="635.0" prefWidth="925.0">
+              <columns>
+                <TableColumn fx:id="eventNameCol" prefWidth="289.0" text="Event Name" />
+                <TableColumn fx:id="dateCol" minWidth="0.0" prefWidth="239.0" text="Date" />
+                  <TableColumn fx:id="desccriptionCol" minWidth="0.0" prefWidth="396.0" text="Description" />
+              </columns>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TableView>
+        </children>
+    </Pane>
+    <Pane fx:id="findDateBox" layoutX="2.0" layoutY="65.0" prefHeight="208.0" prefWidth="293.0" style="-fx-background-color: #fff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="105.0" text="Find Events" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="54.0" opacity="0.54" prefHeight="25.0" prefWidth="111.0" text="Event Name" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="115.0" opacity="0.54" prefHeight="25.0" prefWidth="111.0" text="Date" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <TextField fx:id="findEventField" layoutX="11.0" layoutY="79.0" prefHeight="25.0" prefWidth="271.0">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+            <DatePicker fx:id="findEventDatePicker" layoutX="11.0" layoutY="140.0" prefHeight="25.0" prefWidth="146.0" promptText="MM/DD/YYYY">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </DatePicker>
+            <JFXButton fx:id="findBtn" buttonType="RAISED" layoutX="168.0" layoutY="140.0" onAction="#findEvent" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: black;" text="Find" textFill="WHITE" />
+        </children>
+    </Pane>
+    <Pane layoutX="1.0" layoutY="283.0" prefHeight="275.0" prefWidth="293.0" style="-fx-background-color: #fff;">
+        <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="111.0" text="Manage Events" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <DatePicker fx:id="dateManageEvent" layoutX="14.0" layoutY="125.0" prefHeight="25.0" prefWidth="119.0" promptText="MM/DD/YYYY">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </DatePicker>
+            <Label layoutX="15.0" layoutY="101.0" opacity="0.54" prefHeight="23.0" prefWidth="111.0" text="Date" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="48.0" opacity="0.54" prefHeight="25.0" prefWidth="111.0" text="Event Name" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <TextField fx:id="eventNameField" layoutX="14.0" layoutY="72.0" prefHeight="25.0" prefWidth="271.0">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+            <RadioButton fx:id="radioAdd" layoutX="156.0" layoutY="127.0" mnemonicParsing="false" selected="true" text="Add Event" textFill="#867c7c">
+                <effect>
+                    <DropShadow />
+                </effect>
+                <font>
+                    <Font name="Source Code Pro" size="12.0" />
+                </font>
+            </RadioButton>
+            <RadioButton fx:id="radioRemove" layoutX="156.0" layoutY="155.0" mnemonicParsing="false" text="Remove Event" textFill="#7c6e6e">
+                <effect>
+                    <DropShadow />
+                </effect>
+                <font>
+                    <Font name="Source Code Pro" size="12.0" />
+                </font>
+            </RadioButton>
+            <Label layoutX="154.0" layoutY="101.0" opacity="0.54" prefHeight="23.0" prefWidth="111.0" text="Mode" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <TextArea fx:id="shortDescTxt" layoutX="12.0" layoutY="181.0" prefHeight="68.0" prefWidth="131.0">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextArea>
+            <Label layoutX="15.0" layoutY="160.0" opacity="0.54" prefHeight="23.0" prefWidth="150.0" text="Short Description" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="11.0" />
+                </font>
+            </Label>
+            <RadioButton fx:id="editEvent" layoutX="156.0" layoutY="183.0" mnemonicParsing="false" text="Edit Event" textFill="#7c6e6e">
+                <effect>
+                    <DropShadow />
+                </effect>
+                <font>
+                    <Font name="Source Code Pro" size="12.0" />
+                </font>
+            </RadioButton>
+            <JFXButton fx:id="submitControlBtn" buttonType="RAISED" layoutX="174.0" layoutY="224.0" onAction="#handleEvents" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: black;" text="Submit" textFill="WHITE" />
+        </children>
+        <effect>
+            <DropShadow />
+        </effect>
+    </Pane>
+    <Pane layoutX="2.0" layoutY="573.0" prefHeight="166.0" prefWidth="293.0" style="-fx-background-color: #fff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="133.0" text="Alert nearest event" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <JFXButton fx:id="alertBtn" buttonType="RAISED" layoutX="168.0" layoutY="127.0" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: black;" text="Alert" textFill="WHITE" />
+            <ComboBox fx:id="orgBox" layoutX="14.0" layoutY="79.0" prefHeight="25.0" prefWidth="260.0" style="-fx-background-color: white];">
+                <effect>
+                    <DropShadow />
+                </effect></ComboBox>
+            <Label layoutX="12.0" layoutY="53.0" opacity="0.54" prefHeight="23.0" prefWidth="111.0" text="Organizations" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Pane layoutX="3.0" layoutY="21.0" prefHeight="37.0" prefWidth="293.0" style="-fx-background-color: black;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <Label alignment="CENTER" layoutY="-1.0" prefHeight="40.0" prefWidth="293.0" text="Control Center" textFill="WHITE">
+                <font>
+                    <Font name="Roboto Black" size="24.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+</children></AnchorPane>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ncnl.balayanexpensewise.controller.SignupController">
+   <children>
+      <AnchorPane prefHeight="662.0" prefWidth="412.0">
+         <children>
+            <ImageView fitHeight="672.0" fitWidth="447.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/bsuImgSignup.png" />
+               </image>
+            </ImageView>
+            <Pane opacity="0.37" prefHeight="663.0" prefWidth="447.0" style="-fx-background-color: #E70000;" />
+         </children>
+      </AnchorPane>
+      <Label layoutX="637.0" layoutY="59.0" text="Signup">
+         <font>
+            <Font name="Roboto Black" size="51.0" />
+         </font>
+      </Label>
+      <Label layoutX="532.0" layoutY="193.0" text="First Name">
+         <font>
+            <Font name="Source Code Pro Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="679.0" layoutY="193.0" text="Midde Name">
+         <font>
+            <Font name="Source Code Pro Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="798.0" layoutY="194.0" prefHeight="19.0" prefWidth="149.0" text="Last Name">
+         <font>
+            <Font name="Source Code Pro Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="mnameTxt" alignment="CENTER" layoutX="645.0" layoutY="156.0" prefHeight="26.0" prefWidth="149.0" promptText="Batumbakal" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" opacity="0.7300000190734863" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Source Code Pro" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="lnameTxt" alignment="CENTER" layoutX="797.0" layoutY="156.0" prefHeight="26.0" prefWidth="149.0" promptText="Cabungcal" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" opacity="0.7300000190734863" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Source Code Pro" size="12.0" />
+         </font>
+      </TextField>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="494.0" layoutY="263.0" prefHeight="19.0" prefWidth="301.0" text="Role">
+         <font>
+            <Font name="Source Code Pro Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="roleTxt" alignment="CENTER" layoutX="494.0" layoutY="227.0" prefHeight="26.0" prefWidth="301.0" promptText="Commitee of Digital Graphics" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" opacity="0.7300000190734863" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Source Code Pro" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="departmentTxt" alignment="CENTER" layoutX="800.0" layoutY="227.0" prefHeight="26.0" prefWidth="149.0" promptText="SSC" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" opacity="0.7300000190734863" />
+               </color>
+            </DropShadow>
+         </effect>
+      </TextField>
+      <Label alignment="CENTER" layoutX="800.0" layoutY="262.0" prefHeight="19.0" prefWidth="149.0" text="Department">
+         <font>
+            <Font name="Source Code Pro Bold" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="gsuiteTxt" alignment="CENTER" layoutX="567.0" layoutY="329.0" prefHeight="26.0" prefWidth="301.0" promptText="20-12345@g.batstate-u.edu.ph" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" opacity="0.7300000190734863" />
+               </color>
+            </DropShadow>
+         </effect>
+      </TextField>
+      <Line endX="262.0" layoutX="641.0" layoutY="299.0" startX="-100.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="567.0" layoutY="366.0" prefHeight="19.0" prefWidth="301.0" text="Gsuite">
+         <font>
+            <Font name="Source Code Pro Bold" size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="passwordTxt" alignment="CENTER" layoutX="567.0" layoutY="400.0" prefHeight="26.0" prefWidth="301.0" promptText="Enter your Password" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" opacity="0.7300000190734863" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Source Code Pro" size="12.0" />
+         </font>
+      </PasswordField>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="567.0" layoutY="439.0" prefHeight="19.0" prefWidth="301.0" text="Password">
+         <font>
+            <Font name="Source Code Pro Bold" size="14.0" />
+         </font>
+      </Label>
+      <Line endX="262.0" layoutX="639.0" layoutY="480.0" startX="-100.0" />
+      <JFXButton fx:id="signupBtn" buttonType="RAISED" disable="true" layoutX="573.0" layoutY="511.0" onAction="#signupUser" prefHeight="30.0" prefWidth="142.0" style="-fx-background-color: #FF2400;" text="Signup" />
+      <JFXButton fx:id="cancelBtn" buttonType="RAISED" layoutX="723.0" layoutY="511.0" onAction="#userExit" prefHeight="30.0" prefWidth="142.0" style="-fx-background-color: gray;" text="Cancel" />
+      <ProgressBar fx:id="progressbar" layoutX="539.0" layoutY="611.0" prefHeight="20.0" prefWidth="363.0" progress="0.0" style="-fx-background-color: white;" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="567.0" layoutY="551.0" prefHeight="19.0" prefWidth="270.0" text="Already signed in? login">
+         <font>
+            <Font name="Source Code Pro Bold" size="10.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="toLoginLink" layoutX="776.0" layoutY="551.0" onAction="#goToLoginPage" text="here" textFill="RED">
+         <font>
+            <Font name="Source Code Pro Bold" size="10.0" />
+         </font>
+      </Hyperlink>
+      <TextField fx:id="fnameTxt" alignment="CENTER" layoutX="493.0" layoutY="156.0" prefHeight="26.0" prefWidth="149.0" promptText="Arjay" style="-fx-background-color: white;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" opacity="0.7300000190734863" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="Source Code Pro" size="12.0" />
+         </font>
+      </TextField>
+   </children>
+   <effect>
+      <DropShadow height="1.0" radius="0.0" width="0.0" />
+   </effect>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>

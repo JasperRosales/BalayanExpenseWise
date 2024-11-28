@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ncnl.balayanexpensewise.controller.ManageController"
+            minHeight="0.0" minWidth="0.0"
+            prefHeight="180.0" prefWidth="200.0">
+<children>
+    <Pane layoutX="7.0" layoutY="14.0" prefHeight="228.0" prefWidth="1269.0" style="-fx-background-color: #fff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="169.0" text="Manage Members" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="259.0" layoutY="50.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Name" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <TextField layoutX="259.0" layoutY="76.0" prefHeight="25.0" prefWidth="305.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+            <ComboBox layoutX="575.0" layoutY="75.0" prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </ComboBox>
+            <Label layoutX="575.0" layoutY="49.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Current Role" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="913.0" layoutY="49.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="New Role" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <TextField layoutX="259.0" layoutY="135.0" prefHeight="25.0" prefWidth="305.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+            <Label layoutX="259.0" layoutY="112.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Information to update" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="575.0" layoutY="111.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Where to update" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="1123.0" layoutY="189.0" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: black;" text="Make Changes" textFill="WHITE" />
+            <ComboBox layoutX="575.0" layoutY="135.0" prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </ComboBox>
+            <ComboBox layoutX="913.0" layoutY="75.0" prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </ComboBox>
+            <RadioButton layoutX="12.0" layoutY="79.0" mnemonicParsing="false" text="Update Member Information">
+                <font>
+                    <Font name="Source Code Pro" size="12.0" />
+                </font>
+            </RadioButton>
+            <Line endX="15.1865234375" layoutX="273.0" layoutY="125.0" rotate="90.0" startX="-100.0" stroke="#909090" strokeWidth="2.0" />
+            <RadioButton layoutX="12.0" layoutY="104.0" mnemonicParsing="false" text="Delete Member Acccount">
+                <font>
+                    <Font name="Source Code Pro" size="12.0" />
+                </font>
+            </RadioButton>
+            <RadioButton layoutX="12.0" layoutY="130.0" mnemonicParsing="false" text="Add New Role">
+                <font>
+                    <Font name="Source Code Pro" size="12.0" />
+                </font>
+            </RadioButton>
+            <RadioButton layoutX="12.0" layoutY="156.0" mnemonicParsing="false" text="Request Resignation">
+                <font>
+                    <Font name="Source Code Pro" size="12.0" />
+                </font>
+            </RadioButton>
+            <Label layoutX="17.0" layoutY="50.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Modes" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="913.0" layoutY="112.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Where to update" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <ComboBox layoutX="913.0" layoutY="135.0" prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </ComboBox>
+        </children>
+    </Pane>
+    <Pane layoutX="7.0" layoutY="477.0" prefHeight="23.0" prefWidth="1269.0" style="-fx-background-color: black;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <Label alignment="CENTER" layoutX="565.0" layoutY="-2.0" prefHeight="23.0" prefWidth="140.0" text="Shortcut" textFill="WHITE">
+                <font>
+                    <Font name="Roboto Bold" size="22.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Pane layoutX="7.0" layoutY="508.0" prefHeight="200.0" prefWidth="433.0" style="-fx-background-color: #fff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="169.0" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="169.0" text="Find Members" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="41.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Filter by" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="198.0" layoutY="41.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Find by Field" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <ComboBox layoutX="13.0" layoutY="64.0" prefHeight="25.0" prefWidth="179.0">
+                <effect>
+                    <DropShadow />
+                </effect></ComboBox>
+            <TextField layoutX="198.0" layoutY="64.0" prefHeight="25.0" prefWidth="230.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect></TextField>
+            <Label layoutX="198.0" layoutY="95.0" opacity="0.66" prefHeight="23.0" prefWidth="48.0" text="Output" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Line endX="68.0" layoutX="118.0" layoutY="106.0" startX="-100.0" />
+            <Line endX="68.0" layoutX="350.0" layoutY="106.0" startX="-100.0" />
+            <TextArea layoutX="14.0" layoutY="126.0" prefHeight="28.0" prefWidth="283.0">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextArea>
+            <TextArea layoutX="304.0" layoutY="125.0" prefHeight="38.0" prefWidth="120.0">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextArea>
+        </children>
+    </Pane>
+    <Pane layoutX="450.0" layoutY="508.0" prefHeight="200.0" prefWidth="421.0" style="-fx-background-color: #fff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="169.0" text="Contact Members" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Bold" size="14.0" />
+                </font>
+            </Label>
+            <TextField layoutX="14.0" layoutY="61.0" prefHeight="25.0" prefWidth="391.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+            <Label layoutX="14.0" layoutY="39.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Member to be contacted" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="100.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Short Message" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <TextArea layoutX="14.0" layoutY="123.0" prefHeight="71.0" prefWidth="293.0" wrapText="true">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextArea>
+            <JFXButton buttonType="RAISED" layoutX="322.0" layoutY="164.0" prefHeight="29.0" prefWidth="91.0" style="-fx-background-color: black;" text="Send Mail" textFill="WHITE" />
+        </children>
+    </Pane>
+    <Pane layoutX="884.0" layoutY="508.0" prefHeight="99.0" prefWidth="392.0" style="-fx-background-color: #fff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <JFXButton buttonType="RAISED" layoutX="103.0" layoutY="38.0" prefHeight="29.0" prefWidth="187.0" style="-fx-background-color: black;" text="Go to Organizations Tab" textFill="WHITE" />
+            <Line endX="15.1865234375" layoutX="239.0" layoutY="76.0" startX="-100.0" stroke="#909090" strokeWidth="2.0" />
+            <Line endX="15.1865234375" layoutX="238.0" layoutY="27.0" startX="-100.0" stroke="#909090" strokeWidth="2.0" />
+        </children>
+    </Pane>
+    <Pane layoutX="6.0" layoutY="282.0" prefHeight="183.0" prefWidth="1269.0" style="-fx-background-color: #fff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <Line endX="15.1865234375" endY="-13.0" layoutX="222.0" layoutY="65.0" startX="15.1865234375" startY="76.0" stroke="#909090" strokeWidth="2.0" />
+            <Label alignment="CENTER" layoutX="-12.0" layoutY="23.0" prefHeight="23.0" prefWidth="261.0" text="First Step" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="236.0" layoutY="22.0" prefHeight="23.0" prefWidth="261.0" text="Modes" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Bold" size="14.0" />
+                </font>
+            </Label>
+            <Line endX="15.1865234375" endY="-13.0" layoutX="481.0" layoutY="65.0" startX="15.1865234375" startY="76.0" stroke="#909090" strokeWidth="2.0" />
+            <Line endX="15.1865234375" endY="-13.0" layoutX="742.0" layoutY="60.0" startX="15.1865234375" startY="76.0" stroke="#909090" strokeWidth="2.0" />
+            <Label alignment="CENTER" layoutX="497.0" layoutY="21.0" prefHeight="23.0" prefWidth="261.0" text="Update and Add" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="756.0" layoutY="20.0" prefHeight="23.0" prefWidth="261.0" text="Dual Roles" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Bold" size="14.0" />
+                </font>
+            </Label>
+            <Line endX="15.1865234375" endY="-13.0" layoutX="1001.0" layoutY="60.0" startX="15.1865234375" startY="76.0" stroke="#909090" strokeWidth="2.0" />
+            <Label alignment="CENTER" layoutX="1015.0" layoutY="20.0" prefHeight="23.0" prefWidth="237.0" text="Resignations" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label alignment="TOP_LEFT" layoutX="22.0" layoutY="48.0" lineSpacing="1.0" opacity="0.66" prefHeight="101.0" prefWidth="201.0" text="Select a mode for managing the member, if you are a non-ssc member it will only be updated unless approved by the admins(SSC)" textAlignment="CENTER" textFill="#0a0a0a" wrapText="true">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label alignment="TOP_LEFT" layoutX="266.0" layoutY="48.0" lineSpacing="1.0" opacity="0.66" prefHeight="101.0" prefWidth="201.0" text="Each mode is specific to what the requirements. It will disbable other unecessary fields, so that you only fill up what you need" textAlignment="CENTER" textFill="#0a0a0a" wrapText="true">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label alignment="TOP_LEFT" layoutX="527.0" layoutY="48.0" lineSpacing="1.0" opacity="0.66" prefHeight="101.0" prefWidth="201.0" text="These modes will renew the member's informaton. In adding new roles, The old role will be replace and the new role will be updated" textAlignment="CENTER" textFill="#0a0a0a" wrapText="true">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label alignment="TOP_LEFT" layoutX="786.0" layoutY="48.0" lineSpacing="1.0" opacity="0.66" prefHeight="101.0" prefWidth="201.0" text="Some Members have dual/two roles, therefore there are members that can have two roles in, making them an admin with control over the app " textAlignment="CENTER" textFill="#0a0a0a" wrapText="true">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label alignment="TOP_LEFT" layoutX="1033.0" layoutY="48.0" lineSpacing="1.0" opacity="0.66" prefHeight="101.0" prefWidth="201.0" text="Only the SSC members can perform a resignation, and to make their resignations final, they can only be approved by Advisers of the orgranizations" textAlignment="CENTER" textFill="#0a0a0a" wrapText="true">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Pane layoutX="6.0" layoutY="251.0" prefHeight="23.0" prefWidth="1269.0" style="-fx-background-color: black;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <Label alignment="CENTER" layoutX="565.0" layoutY="-2.0" prefHeight="23.0" prefWidth="140.0" text="How it works?" textFill="WHITE">
+                <font>
+                    <Font name="Roboto Bold" size="22.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Pane layoutX="8.0" layoutY="720.0" prefHeight="80.0" prefWidth="1269.0" style="-fx-background-color: #fff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <Label layoutX="7.0" layoutY="3.0" prefHeight="23.0" prefWidth="169.0" text="Member's Information" textFill="#0a0a0a">
+                <font>
+                    <Font name="Roboto Bold" size="14.0" />
+                </font>
+            </Label>
+            <TextField editable="false" layoutX="13.0" layoutY="46.0" prefHeight="25.0" prefWidth="241.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+            <TextField editable="false" layoutX="261.0" layoutY="45.0" prefHeight="25.0" prefWidth="223.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+            <TextField editable="false" layoutX="491.0" layoutY="45.0" prefHeight="25.0" prefWidth="288.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+            <TextField editable="false" layoutX="789.0" layoutY="45.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+            <TextField editable="false" layoutX="1013.0" layoutY="45.0" prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+            <TextField editable="false" layoutX="901.0" layoutY="45.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #fff;">
+                <effect>
+                    <DropShadow />
+                </effect>
+            </TextField>
+            <Label layoutX="13.0" layoutY="23.0" opacity="0.66" prefHeight="23.0" prefWidth="62.0" text="Name" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="261.0" layoutY="23.0" opacity="0.66" prefHeight="23.0" prefWidth="62.0" text="Gsuite" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="491.0" layoutY="23.0" opacity="0.66" prefHeight="23.0" prefWidth="62.0" text="Role" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="789.0" layoutY="21.0" opacity="0.66" prefHeight="23.0" prefWidth="105.0" text="Department" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="901.0" layoutY="21.0" opacity="0.66" prefHeight="23.0" prefWidth="105.0" text="Program" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+            <Label layoutX="1013.0" layoutY="21.0" opacity="0.66" prefHeight="23.0" prefWidth="166.0" text="Also an SSC Member" textFill="#0a0a0a">
+                <font>
+                    <Font name="Source Code Pro Bold" size="12.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Pane layoutX="884.0" layoutY="615.0" prefHeight="97.0" prefWidth="392.0" style="-fx-background-color: #fff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <JFXButton buttonType="RAISED" layoutX="103.0" layoutY="34.0" prefHeight="29.0" prefWidth="187.0" style="-fx-background-color: black;" text="Go to Contact Tab" textFill="WHITE" />
+            <Line endX="15.1865234375" layoutX="239.0" layoutY="73.0" startX="-100.0" stroke="#909090" strokeWidth="2.0" />
+            <Line endX="15.1865234375" layoutX="238.0" layoutY="22.0" startX="-100.0" stroke="#909090" strokeWidth="2.0" />
+        </children>
+    </Pane>
+</children></AnchorPane>

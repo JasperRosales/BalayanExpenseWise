@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ncnl.balayanexpensewise.controller.CreditController" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+<children>
+    <Pane layoutX="7.0" layoutY="20.0" prefHeight="775.0" prefWidth="407.0" style="-fx-background-color: #ffff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <ImageView fitHeight="507.0" fitWidth="369.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <effect>
+                    <DropShadow />
+                </effect>
+                <image>
+                    <Image url="@../../../../../../Downloads/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg" />
+                </image>
+            </ImageView>
+            <Label layoutX="19.0" layoutY="276.0" prefHeight="25.0" prefWidth="54.0" text="Name:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="312.0" prefHeight="23.0" prefWidth="54.0" text="Srcode:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="355.0" prefHeight="25.0" prefWidth="54.0" text="Gsuite:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="400.0" prefHeight="25.0" prefWidth="54.0" text="Role:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="443.0" prefHeight="25.0" prefWidth="94.0" text="Department:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="485.0" prefHeight="25.0" prefWidth="123.0" text="Program &amp; Year:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="530.0" prefHeight="25.0" prefWidth="94.0" text="Contributions:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label alignment="CENTER" layoutY="702.0" prefHeight="25.0" prefWidth="408.0" text="Github">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Hyperlink alignment="CENTER" layoutY="727.0" prefHeight="23.0" prefWidth="407.0" text="Hyperlink" textAlignment="CENTER" />
+            <Label layoutX="69.0" layoutY="276.0" prefHeight="25.0" prefWidth="320.0" text="Jasper B. Rosales">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="311.0" prefHeight="25.0" prefWidth="320.0" text="23-19300">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="355.0" prefHeight="25.0" prefWidth="320.0" text="23-19300@g.batstate-u.edu.ph">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="73.0" layoutY="400.0" prefHeight="25.0" prefWidth="320.0" text="Project Manager/Fullstack Engineer">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="108.0" layoutY="443.0" prefHeight="25.0" prefWidth="285.0" text="CICS">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="136.0" layoutY="485.0" prefHeight="25.0" prefWidth="257.0" text="BSIT2A">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <TextArea editable="false" layoutX="22.0" layoutY="565.0" prefHeight="123.0" prefWidth="363.0" text="• Made the read_me file and repository&#10;• Created the backend system and services&#10;• Developed the admin and user logic&#10;• Implemented several system design method such as hashing, encryption and etc&#10;• Made the spring boot integration&#10;• Configured the database to be accessed public" wrapText="true">
+                <font>
+                    <Font name="Source Code Pro" size="12.0" />
+                </font></TextArea>
+        </children>
+    </Pane>
+    <Pane layoutX="436.0" layoutY="20.0" prefHeight="775.0" prefWidth="407.0" style="-fx-background-color: #ffff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <ImageView fitHeight="507.0" fitWidth="369.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <effect>
+                    <DropShadow />
+                </effect>
+                <image>
+                    <Image url="@../../../../../../Downloads/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg" />
+                </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="705.0" prefHeight="25.0" prefWidth="409.0" text="Github">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Hyperlink alignment="CENTER" layoutX="-1.0" layoutY="730.0" prefHeight="23.0" prefWidth="408.0" text="Hyperlink" />
+            <Label layoutX="19.0" layoutY="280.0" prefHeight="25.0" prefWidth="54.0" text="Name:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="316.0" prefHeight="23.0" prefWidth="54.0" text="Srcode:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="359.0" prefHeight="25.0" prefWidth="54.0" text="Gsuite:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="404.0" prefHeight="25.0" prefWidth="54.0" text="Role:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="447.0" prefHeight="25.0" prefWidth="94.0" text="Department:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="489.0" prefHeight="25.0" prefWidth="113.0" text="Program &amp; Year:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="534.0" prefHeight="25.0" prefWidth="94.0" text="Contributions:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <TextArea editable="false" layoutX="22.0" layoutY="566.0" prefHeight="123.0" prefWidth="363.0" text="• Developed the UI of the project&#10;• Designed the Dashboards and Panels&#10;• Help organized the data in charts&#10;• Customized the legends based on organization&#10;• Implemented Simple but Aesthetic design&#10;• Helped in the Spring boot UI extension for mobile/web for flexibility" wrapText="true">
+                <font>
+                    <Font name="Source Code Pro" size="12.0" />
+                </font>
+            </TextArea>
+            <Label layoutX="73.0" layoutY="280.0" prefHeight="25.0" prefWidth="320.0" text="Ron Andrew ? Arizala">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="315.0" prefHeight="25.0" prefWidth="320.0" text="Lorem">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="359.0" prefHeight="25.0" prefWidth="320.0" text="Lorem">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="404.0" prefHeight="25.0" prefWidth="320.0" text="Front-end Engineer">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="112.0" layoutY="447.0" prefHeight="25.0" prefWidth="285.0" text="CICS">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="140.0" layoutY="489.0" prefHeight="25.0" prefWidth="257.0" text="BSIT2A">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+    <Pane layoutX="862.0" layoutY="20.0" prefHeight="778.0" prefWidth="407.0" style="-fx-background-color: #ffff;">
+        <effect>
+            <DropShadow />
+        </effect>
+        <children>
+            <ImageView fitHeight="507.0" fitWidth="369.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                <effect>
+                    <DropShadow />
+                </effect>
+                <image>
+                    <Image url="@../../../../../../Downloads/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg" />
+                </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="-1.0" layoutY="708.0" prefHeight="25.0" prefWidth="409.0" text="Github">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Hyperlink alignment="CENTER" layoutY="733.0" prefHeight="23.0" prefWidth="408.0" text="Hyperlink" />
+            <Label layoutX="19.0" layoutY="277.0" prefHeight="25.0" prefWidth="54.0" text="Name:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="313.0" prefHeight="23.0" prefWidth="54.0" text="Srcode:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="356.0" prefHeight="25.0" prefWidth="54.0" text="Gsuite:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="401.0" prefHeight="25.0" prefWidth="54.0" text="Role:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="444.0" prefHeight="25.0" prefWidth="94.0" text="Department:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="486.0" prefHeight="25.0" prefWidth="117.0" text="Program &amp; Year:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="19.0" layoutY="531.0" prefHeight="25.0" prefWidth="94.0" text="Contributions:">
+                <font>
+                    <Font name="Roboto Black" size="14.0" />
+                </font>
+            </Label>
+            <TextArea editable="false" layoutX="22.0" layoutY="567.0" prefHeight="123.0" prefWidth="363.0" text="• Tested the JDBC connectivity&#10;• Adjusted the database to be accumulate proper data types&#10;• Created the Structure of the Database&#10;• Made the Table of users and admins&#10;• Helped Applied hashing and encryption to jdbc&#10;" wrapText="true">
+                <font>
+                    <Font name="Source Code Pro" size="12.0" />
+                </font>
+            </TextArea>
+            <Label layoutX="66.0" layoutY="277.0" prefHeight="25.0" prefWidth="320.0" text="Raniel Carl ? Lopez">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="312.0" prefHeight="25.0" prefWidth="320.0" text="Lorem">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="356.0" prefHeight="25.0" prefWidth="320.0" text="Lorem">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="70.0" layoutY="401.0" prefHeight="25.0" prefWidth="320.0" text="Database Engineer">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="105.0" layoutY="444.0" prefHeight="25.0" prefWidth="285.0" text="CICS">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="133.0" layoutY="486.0" prefHeight="25.0" prefWidth="257.0" text="BSIT2A">
+                <font>
+                    <Font name="Source Code Pro Bold" size="14.0" />
+                </font>
+            </Label>
+        </children>
+    </Pane>
+</children>
+</AnchorPane>
