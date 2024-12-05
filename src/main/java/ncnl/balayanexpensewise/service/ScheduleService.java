@@ -32,31 +32,47 @@ public class ScheduleService implements ScheduleDAO {
     }
 
     @Override
-    public void updateSchedule(String eventName, Schedule schedule) {
-        final String UPDATE_QUERY = "UPDATE event_schedules SET date = ?, description = ? WHERE event_name = ?";
+    public void updateSchedule(Integer id, Schedule schedule) {
+        final String UPDATE_QUERY = "UPDATE event_schedules SET event_name = ?, event_date = ?, description = ? WHERE id = ?";
+
         try (Connection connection = DatabaseConnector.getUserConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUERY)) {
 
-            preparedStatement.setDate(1, Date.valueOf(schedule.getDate()));
-            preparedStatement.setString(2, schedule.getDescription());
-            preparedStatement.setString(3, schedule.getEventName());
+            preparedStatement.setString(1,  schedule.getEventName());
+            preparedStatement.setDate(2, Date.valueOf(schedule.getDate()));
+            preparedStatement.setString(3, schedule.getDescription());
+            preparedStatement.setInt(4, id);
+
             preparedStatement.executeUpdate();
+
+            AlarmUtils.showCustomSuccessAlert("Successfully edited");
+            int rowsAffected = preparedStatement.executeUpdate();
+            System.out.println("Rows affected: " + rowsAffected);
 
         } catch (SQLException e) {
             e.printStackTrace();
+            AlarmUtils.showErrorAlert("Something went wrong");
         }
+
+
     }
 
+
     @Override
-    public void deleteSchedule(String eventName) {
-        final String DELETE_QUERY = "DELETE FROM event_schedules WHERE event_name = ?";
+    public void deleteSchedule(Integer id) {
+        final String DELETE_QUERY = "DELETE FROM event_schedules WHERE id = ?";
+
         try (Connection connection = DatabaseConnector.getUserConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(DELETE_QUERY)) {
 
-            preparedStatement.setString(1, eventName);
+            preparedStatement.setInt(1, id);
+            preparedStatement.executeUpdate();
+
+            AlarmUtils.showCustomSuccessAlert("Successfully Deleted the event");
 
         } catch (SQLException e) {
             e.printStackTrace();
+            AlarmUtils.showErrorAlert("Something went wrong during deletion");
         }
     }
 
@@ -64,7 +80,8 @@ public class ScheduleService implements ScheduleDAO {
     @Override
     public List<Schedule> getAllSchedules() {
         List<Schedule> schedules = new ArrayList<>();
-        String query = "SELECT * FROM event_schedules";
+        String query = "SELECT * FROM event_schedules ORDER BY event_date ASC";
+        ;
 
         try (Connection conn = DatabaseConnector.getUserConnection();
              PreparedStatement psmt = conn.prepareStatement(query);
@@ -87,66 +104,19 @@ public class ScheduleService implements ScheduleDAO {
     }
 
 
-    public List<Schedule> getEventsByNameOrDate(String eventName, LocalDate eventDate) {
-        List<Schedule> schedules = new ArrayList<>();
+    public Schedule getNearestEvent() {
+        final String NEAREST_EVENT_QUERY = "SELECT event_name, event_date, description FROM event_schedules WHERE event_date >= CURDATE() ORDER BY event_date ASC LIMIT 1";
 
-        StringBuilder sql = new StringBuilder("SELECT * FROM event_schedules WHERE 1=1");
-
-        if (eventName != null && !eventName.trim().isEmpty()) {
-            sql.append(" AND event_name LIKE ?");
-        }
-        if (eventDate != null) {
-            sql.append(" AND event_date = ?");
-        }
-
-        try (Connection connection = DatabaseConnector.getUserConnection()) {
-            PreparedStatement statement = connection.prepareStatement(sql.toString());
-
-            int index = 1;
-
-            if (eventName != null && !eventName.trim().isEmpty()) {
-                statement.setString(index++, "%" + eventName + "%");
-            }
-
-            if (eventDate != null) {
-                statement.setDate(index++, Date.valueOf(eventDate));
-            }
-
-            ResultSet resultSet = statement.executeQuery();
-
-            // Process the result set
-            while (resultSet.next()) {
-                String name = resultSet.getString("event_name");
-                LocalDate date = resultSet.getDate("event_date").toLocalDate();
-                String description = resultSet.getString("description");
-
-                Schedule schedule = new Schedule(name, date, description);
-                schedules.add(schedule);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return schedules;
-    }
-
-
-
-    @Override
-    public Schedule getScheduleById(int id) {
-        final String SELECT_QUERY = "SELECT * FROM event_schedules WHERE id = ?";
         try (Connection connection = DatabaseConnector.getUserConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_QUERY)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(NEAREST_EVENT_QUERY);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
 
-            preparedStatement.setInt(1, id);
-            try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                if (resultSet.next()) {
-                    Schedule schedule = new Schedule();
-                    schedule.setId(resultSet.getInt("id"));
-                    schedule.setDate(resultSet.getDate("date").toLocalDate());
-                    schedule.setDescription(resultSet.getString("description"));
-                    return schedule;
-                }
+            if (resultSet.next()) {
+                Schedule schedule = new Schedule();
+                schedule.setEventName(resultSet.getString("event_name"));
+                schedule.setDate(resultSet.getDate("event_date").toLocalDate());
+                schedule.setDescription(resultSet.getString("description"));
+                return schedule;
             }
 
         } catch (SQLException e) {
@@ -155,4 +125,28 @@ public class ScheduleService implements ScheduleDAO {
 
         return null;
     }
+
+
+    public int getScheduleIdByDetails(String eventName, LocalDate eventDate) {
+        final String SELECT_ID_QUERY = "SELECT id FROM event_schedules WHERE event_name = ? AND event_date = ?";
+
+        try (Connection connection = DatabaseConnector.getUserConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ID_QUERY)) {
+
+            preparedStatement.setString(1, eventName);
+            preparedStatement.setDate(2, Date.valueOf(eventDate));
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    return resultSet.getInt("id");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+
+
 }

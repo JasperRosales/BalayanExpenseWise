@@ -76,30 +76,6 @@ public class InboxService implements InboxDA0 {
 
 
     @Override
-    public void updateInboxRecord(int id, String remarks) {
-        String UPDATE_TRANSACTION_QUERY_RECORD = "UPDATE admin_inbox SET remarks = ? WHERE id = ?";
-
-        try (Connection connection = DatabaseConnector.getUserConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_TRANSACTION_QUERY_RECORD)) {
-
-            preparedStatement.setInt(1, id);
-            preparedStatement.setString(2, "Approved");
-
-            int rowsAffected = preparedStatement.executeUpdate();
-            if (rowsAffected > 0) {
-                AlarmUtils.showCustomSuccessAlert("Transaction updated successfully to 'Approved'.");
-            } else {
-                AlarmUtils.showErrorAlert("No matching transaction found to update!");
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            AlarmUtils.showErrorAlert("An error occurred: " + e.getMessage());
-        }
-    }
-
-
-    @Override
     public void deleteInboxRecord(int id) {
         String DELETE_TRANSACTION_QUERY = "DELETE FROM admin_inbox WHERE id = ?";
 

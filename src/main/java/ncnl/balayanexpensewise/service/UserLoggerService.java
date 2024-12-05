@@ -34,7 +34,7 @@ public class UserLoggerService implements UserLoggerDAO {
      * @return the full name, or null if no record is found
      */
     public String getFullName(String srcode) {
-        String table = isAdminMode ? "admins" : "user";
+        String table = isAdminMode ? "admins" : "users";
         String sql = "SELECT firstName, lastName FROM " + table + " WHERE srcode = ?";
 
         try (Connection conn = DatabaseConnector.getUserConnection();
@@ -65,7 +65,7 @@ public class UserLoggerService implements UserLoggerDAO {
             return "SSC";
         }
 
-        String sql = "SELECT department FROM user WHERE srcode = ?";
+        String sql = "SELECT department FROM users WHERE srcode = ?";
 
         try (Connection conn = DatabaseConnector.getUserConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -91,7 +91,7 @@ public class UserLoggerService implements UserLoggerDAO {
      * @return the role, or null if no record is found
      */
     public String getRole(String srcode) {
-        String table = isAdminMode ? "admins" : "user";
+        String table = isAdminMode ? "admins" : "users";
         String row = isAdminMode ? "admin_role" : "role";
         String sql = "SELECT " + row + " FROM " + table + " WHERE srcode = ?";
 
@@ -129,91 +129,6 @@ public class UserLoggerService implements UserLoggerDAO {
         }
     }
 
-    @Override
-    public UserLogger getMostRecentLogByUser(String srcode) {
-        String sql = "SELECT srcode, fullname, department, role, event, timestamp FROM user_logger WHERE srcode = ? ORDER BY timestamp DESC LIMIT 1";
-        try (Connection conn = DatabaseConnector.getUserConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setString(1, srcode);
-
-            try (ResultSet rs = stmt.executeQuery()) {
-                if (rs.next()) {
-                    return mapToUserLogger(rs);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public UserLogger getMostRecentLog() {
-        String sql = "SELECT srcode, fullname, department, role, event, timestamp FROM user_logger ORDER BY timestamp DESC LIMIT 1";
-        try (Connection conn = DatabaseConnector.getUserConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql)) {
-
-            if (rs.next()) {
-                return mapToUserLogger(rs);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    public List<UserLogger> getAllLogsByUser(String srcode) {
-        String sql = "SELECT srcode, fullname, department, role, event, timestamp FROM user_logger WHERE srcode = ? ORDER BY timestamp DESC";
-        List<UserLogger> logs = new ArrayList<>();
-
-        try (Connection conn = DatabaseConnector.getUserConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setString(1, srcode);
-
-            try (ResultSet rs = stmt.executeQuery()) {
-                while (rs.next()) {
-                    logs.add(mapToUserLogger(rs));
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return logs;
-    }
-
-
-
-    @Override
-    public boolean deleteLogsByUser(String srcode) {
-        String sql = "DELETE FROM user_logger WHERE srcode = ?";
-        try (Connection conn = DatabaseConnector.getUserConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setString(1, srcode);
-            return stmt.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    @Override
-    public boolean deleteAllLogs() {
-        String sql = "DELETE FROM user_logger";
-        try (Connection conn = DatabaseConnector.getUserConnection();
-             Statement stmt = conn.createStatement()) {
-
-            return stmt.executeUpdate(sql) > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 
     public List<UserLogger> getRecentLoggingEvents() {
         String sql = "SELECT fullname, role, event FROM user_logger ORDER BY timestamp DESC LIMIT 5";
@@ -237,22 +152,5 @@ public class UserLoggerService implements UserLoggerDAO {
         }
 
         return recentEvents;
-    }
-
-
-
-
-
-    /**
-     * Maps a ResultSet row to a UserLogger object.
-     */
-    private UserLogger mapToUserLogger(ResultSet rs) throws SQLException {
-        return new UserLogger(
-                rs.getString("srcode"),
-                rs.getString("fullname"),
-                rs.getString("department"),
-                rs.getString("role"),
-                rs.getString("event")
-        );
     }
 }

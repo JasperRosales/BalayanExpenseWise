@@ -5,7 +5,6 @@ import javafx.stage.Stage;
 import ncnl.balayanexpensewise.views.FXMLPath;
 import ncnl.balayanexpensewise.views.FXMLViewer;
 
-
 public class Main extends Application{
 
     @Override
@@ -13,11 +12,11 @@ public class Main extends Application{
         FXMLViewer fxmlViewer = new FXMLViewer(primarysStage);
 
         fxmlViewer.loadFXML(FXMLPath.MAIN);
+
     }
+
     public static void main(String[] args) {
         launch(args);
-
     }
-
 
 }

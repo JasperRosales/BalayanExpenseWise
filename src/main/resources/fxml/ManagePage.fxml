@@ -4,19 +4,15 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ncnl.balayanexpensewise.controller.ManageController"
-            minHeight="0.0" minWidth="0.0"
-            prefHeight="180.0" prefWidth="200.0">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="810.0" prefWidth="1285.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ncnl.balayanexpensewise.controller.ManageController">
 <children>
     <Pane layoutX="7.0" layoutY="14.0" prefHeight="228.0" prefWidth="1269.0" style="-fx-background-color: #fff;">
         <effect>
@@ -28,74 +24,67 @@
                     <Font name="Roboto Bold" size="14.0" />
                 </font>
             </Label>
-            <Label layoutX="259.0" layoutY="50.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Name" textFill="#0a0a0a">
+            <Label layoutX="259.0" layoutY="31.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="First Name" textFill="#0a0a0a">
                 <font>
                     <Font name="Source Code Pro Bold" size="12.0" />
                 </font>
             </Label>
-            <TextField layoutX="259.0" layoutY="76.0" prefHeight="25.0" prefWidth="305.0" style="-fx-background-color: #fff;">
+            <TextField fx:id="firstNameField" layoutX="259.0" layoutY="58.0" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #fff;">
                 <effect>
                     <DropShadow />
                 </effect>
             </TextField>
-            <ComboBox layoutX="575.0" layoutY="75.0" prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: #fff;">
+            <ComboBox fx:id="departmentBox" layoutX="1038.0" layoutY="59.0" prefHeight="25.0" prefWidth="201.0" style="-fx-background-color: #fff;">
                 <effect>
                     <DropShadow />
                 </effect>
             </ComboBox>
-            <Label layoutX="575.0" layoutY="49.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Current Role" textFill="#0a0a0a">
+            <Label layoutX="1038.0" layoutY="32.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Department " textFill="#0a0a0a">
                 <font>
                     <Font name="Source Code Pro Bold" size="12.0" />
                 </font>
             </Label>
-            <Label layoutX="913.0" layoutY="49.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="New Role" textFill="#0a0a0a">
+            <Label layoutX="575.0" layoutY="93.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Role" textFill="#0a0a0a">
                 <font>
                     <Font name="Source Code Pro Bold" size="12.0" />
                 </font>
             </Label>
-            <TextField layoutX="259.0" layoutY="135.0" prefHeight="25.0" prefWidth="305.0" style="-fx-background-color: #fff;">
+            <TextField fx:id="srcodeField" layoutX="786.0" layoutY="60.0" prefHeight="25.0" prefWidth="243.0" style="-fx-background-color: #fff;">
                 <effect>
                     <DropShadow />
                 </effect>
             </TextField>
-            <Label layoutX="259.0" layoutY="112.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Information to update" textFill="#0a0a0a">
+            <Label layoutX="788.0" layoutY="32.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Srcode" textFill="#0a0a0a">
                 <font>
                     <Font name="Source Code Pro Bold" size="12.0" />
                 </font>
             </Label>
-            <Label layoutX="575.0" layoutY="111.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Where to update" textFill="#0a0a0a">
-                <font>
-                    <Font name="Source Code Pro Bold" size="12.0" />
-                </font>
-            </Label>
-            <JFXButton buttonType="RAISED" layoutX="1123.0" layoutY="189.0" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: black;" text="Make Changes" textFill="WHITE" />
-            <ComboBox layoutX="575.0" layoutY="135.0" prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: #fff;">
+            <JFXButton fx:id="makeChangesBtn" buttonType="RAISED" layoutX="1123.0" layoutY="172.0" onAction="#handleChange" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: black;" text="Make Changes" textFill="WHITE" />
+            <ComboBox fx:id="roleBox" layoutX="575.0" layoutY="118.0" prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: #fff;">
                 <effect>
                     <DropShadow />
                 </effect>
             </ComboBox>
-            <ComboBox layoutX="913.0" layoutY="75.0" prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: #fff;">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </ComboBox>
-            <RadioButton layoutX="12.0" layoutY="79.0" mnemonicParsing="false" text="Update Member Information">
+            <RadioButton fx:id="updateMode" layoutX="12.0" layoutY="79.0" mnemonicParsing="false" selected="true" text="Update Member Information">
                 <font>
                     <Font name="Source Code Pro" size="12.0" />
                 </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="modeGroup" />
+               </toggleGroup>
             </RadioButton>
             <Line endX="15.1865234375" layoutX="273.0" layoutY="125.0" rotate="90.0" startX="-100.0" stroke="#909090" strokeWidth="2.0" />
-            <RadioButton layoutX="12.0" layoutY="104.0" mnemonicParsing="false" text="Delete Member Acccount">
+            <RadioButton fx:id="deleteMode" layoutX="12.0" layoutY="104.0" mnemonicParsing="false" text="Delete Member Acccount" toggleGroup="$modeGroup">
                 <font>
                     <Font name="Source Code Pro" size="12.0" />
                 </font>
             </RadioButton>
-            <RadioButton layoutX="12.0" layoutY="130.0" mnemonicParsing="false" text="Add New Role">
+            <RadioButton fx:id="addMode" layoutX="12.0" layoutY="130.0" mnemonicParsing="false" text="Add New Role" toggleGroup="$modeGroup">
                 <font>
                     <Font name="Source Code Pro" size="12.0" />
                 </font>
             </RadioButton>
-            <RadioButton layoutX="12.0" layoutY="156.0" mnemonicParsing="false" text="Request Resignation">
+            <RadioButton fx:id="resignationMode" layoutX="12.0" layoutY="156.0" mnemonicParsing="false" text="Request Resignation" toggleGroup="$modeGroup">
                 <font>
                     <Font name="Source Code Pro" size="12.0" />
                 </font>
@@ -105,16 +94,46 @@
                     <Font name="Source Code Pro Bold" size="12.0" />
                 </font>
             </Label>
-            <Label layoutX="913.0" layoutY="112.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Where to update" textFill="#0a0a0a">
+            <Label layoutX="913.0" layoutY="93.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Dual Role" textFill="#0a0a0a">
                 <font>
                     <Font name="Source Code Pro Bold" size="12.0" />
                 </font>
             </Label>
-            <ComboBox layoutX="913.0" layoutY="135.0" prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: #fff;">
+            <ComboBox fx:id="dualRoleBox" layoutX="913.0" layoutY="118.0" prefHeight="25.0" prefWidth="326.0" style="-fx-background-color: #fff;">
                 <effect>
                     <DropShadow />
                 </effect>
             </ComboBox>
+            <TextField fx:id="passwordField" layoutX="259.0" layoutY="119.0" prefHeight="25.0" prefWidth="305.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <Label layoutX="259.0" layoutY="96.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Password" textFill="#0a0a0a">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="middleNameField" layoutX="435.0" layoutY="58.0" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="lastNameField" layoutX="610.0" layoutY="58.0" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <Label layoutX="435.0" layoutY="31.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Middle Name" textFill="#0a0a0a">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="610.0" layoutY="32.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Last Name" textFill="#0a0a0a">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
+            </Label>
         </children>
     </Pane>
     <Pane layoutX="7.0" layoutY="477.0" prefHeight="23.0" prefWidth="1269.0" style="-fx-background-color: black;">
@@ -144,21 +163,21 @@
                     <Font name="Roboto Bold" size="14.0" />
                 </font>
             </Label>
-            <Label layoutX="14.0" layoutY="41.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Filter by" textFill="#0a0a0a">
+            <Label layoutX="14.0" layoutY="41.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Filter by department" textFill="#0a0a0a">
                 <font>
                     <Font name="Source Code Pro Bold" size="12.0" />
                 </font>
             </Label>
-            <Label layoutX="198.0" layoutY="41.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Find by Field" textFill="#0a0a0a">
+            <Label layoutX="198.0" layoutY="41.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Find by Name" textFill="#0a0a0a">
                 <font>
                     <Font name="Source Code Pro Bold" size="12.0" />
                 </font>
             </Label>
-            <ComboBox layoutX="13.0" layoutY="64.0" prefHeight="25.0" prefWidth="179.0">
+            <ComboBox fx:id="filterBox" layoutX="13.0" layoutY="64.0" prefHeight="25.0" prefWidth="179.0">
                 <effect>
                     <DropShadow />
                 </effect></ComboBox>
-            <TextField layoutX="198.0" layoutY="64.0" prefHeight="25.0" prefWidth="230.0" style="-fx-background-color: #fff;">
+            <TextField fx:id="findMemberFirstField" layoutX="198.0" layoutY="64.0" prefHeight="25.0" prefWidth="105.0" promptText="First Name" style="-fx-background-color: #fff;">
                 <effect>
                     <DropShadow />
                 </effect></TextField>
@@ -169,59 +188,75 @@
             </Label>
             <Line endX="68.0" layoutX="118.0" layoutY="106.0" startX="-100.0" />
             <Line endX="68.0" layoutX="350.0" layoutY="106.0" startX="-100.0" />
-            <TextArea layoutX="14.0" layoutY="126.0" prefHeight="28.0" prefWidth="283.0">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </TextArea>
-            <TextArea layoutX="304.0" layoutY="125.0" prefHeight="38.0" prefWidth="120.0">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </TextArea>
+            <JFXButton fx:id="findBtn" buttonType="RAISED" layoutX="331.0" layoutY="161.0" onAction="#handleFindMember" prefHeight="29.0" prefWidth="91.0" style="-fx-background-color: black;" text="Find" textFill="WHITE" />
+            <TextField fx:id="nameDisplay" editable="false" layoutX="18.0" layoutY="126.0" prefHeight="25.0" prefWidth="223.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="srcodeDisplay" editable="false" layoutX="250.0" layoutY="126.0" prefHeight="25.0" prefWidth="169.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <TextField fx:id="findMemberLastField" layoutX="315.0" layoutY="64.0" prefHeight="25.0" prefWidth="105.0" promptText="Last Name" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <JFXButton fx:id="clearBtn" buttonType="RAISED" layoutX="233.0" layoutY="161.0" onAction="#clearDisplay" prefHeight="29.0" prefWidth="91.0" style="-fx-background-color: black;" text="Clear" textFill="WHITE" />
         </children>
     </Pane>
-    <Pane layoutX="450.0" layoutY="508.0" prefHeight="200.0" prefWidth="421.0" style="-fx-background-color: #fff;">
+    <Pane layoutX="450.0" layoutY="508.0" prefHeight="200.0" prefWidth="820.0" style="-fx-background-color: #fff;">
         <effect>
             <DropShadow />
         </effect>
         <children>
-            <Label layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="169.0" text="Contact Members" textFill="#0a0a0a">
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="169.0" text="Member's Information" textFill="#0a0a0a">
                 <font>
                     <Font name="Roboto Bold" size="14.0" />
                 </font>
             </Label>
-            <TextField layoutX="14.0" layoutY="61.0" prefHeight="25.0" prefWidth="391.0" style="-fx-background-color: #fff;">
+            <TextField fx:id="roleDisplay" editable="false" layoutX="38.0" layoutY="66.0" prefHeight="25.0" prefWidth="368.0" style="-fx-background-color: #fff;">
                 <effect>
                     <DropShadow />
                 </effect>
             </TextField>
-            <Label layoutX="14.0" layoutY="39.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Member to be contacted" textFill="#0a0a0a">
+            <Label layoutX="39.0" layoutY="42.0" opacity="0.66" prefHeight="23.0" prefWidth="62.0" text="Role" textFill="#0a0a0a">
                 <font>
                     <Font name="Source Code Pro Bold" size="12.0" />
                 </font>
             </Label>
-            <Label layoutX="14.0" layoutY="100.0" opacity="0.66" prefHeight="23.0" prefWidth="169.0" text="Short Message" textFill="#0a0a0a">
-                <font>
-                    <Font name="Source Code Pro Bold" size="12.0" />
-                </font>
+            <TextField fx:id="otherRoleDisplay" editable="false" layoutX="38.0" layoutY="128.0" prefHeight="25.0" prefWidth="376.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
+            <Label layoutX="37.0" layoutY="102.0" opacity="0.66" prefHeight="23.0" prefWidth="105.0" text="Other Role" textFill="#0a0a0a">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
             </Label>
-            <TextArea layoutX="14.0" layoutY="123.0" prefHeight="71.0" prefWidth="293.0" wrapText="true">
+            <TextField fx:id="departmentDisplay" editable="false" layoutX="434.0" layoutY="128.0" prefHeight="25.0" prefWidth="281.0" style="-fx-background-color: #fff;">
                 <effect>
                     <DropShadow />
                 </effect>
-            </TextArea>
-            <JFXButton buttonType="RAISED" layoutX="322.0" layoutY="164.0" prefHeight="29.0" prefWidth="91.0" style="-fx-background-color: black;" text="Send Mail" textFill="WHITE" />
-        </children>
-    </Pane>
-    <Pane layoutX="884.0" layoutY="508.0" prefHeight="99.0" prefWidth="392.0" style="-fx-background-color: #fff;">
-        <effect>
-            <DropShadow />
-        </effect>
-        <children>
-            <JFXButton buttonType="RAISED" layoutX="103.0" layoutY="38.0" prefHeight="29.0" prefWidth="187.0" style="-fx-background-color: black;" text="Go to Organizations Tab" textFill="WHITE" />
-            <Line endX="15.1865234375" layoutX="239.0" layoutY="76.0" startX="-100.0" stroke="#909090" strokeWidth="2.0" />
-            <Line endX="15.1865234375" layoutX="238.0" layoutY="27.0" startX="-100.0" stroke="#909090" strokeWidth="2.0" />
+            </TextField>
+            <Label layoutX="434.0" layoutY="102.0" opacity="0.66" prefHeight="23.0" prefWidth="117.0" text="Department" textFill="#0a0a0a">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="434.0" layoutY="42.0" opacity="0.66" prefHeight="23.0" prefWidth="117.0" text="Gsuite" textFill="#0a0a0a">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="gsuiteDisplay" editable="false" layoutX="434.0" layoutY="66.0" prefHeight="25.0" prefWidth="281.0" style="-fx-background-color: #fff;">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </TextField>
         </children>
     </Pane>
     <Pane layoutX="6.0" layoutY="282.0" prefHeight="183.0" prefWidth="1269.0" style="-fx-background-color: #fff;">
@@ -295,88 +330,6 @@
                     <Font name="Roboto Bold" size="22.0" />
                 </font>
             </Label>
-        </children>
-    </Pane>
-    <Pane layoutX="8.0" layoutY="720.0" prefHeight="80.0" prefWidth="1269.0" style="-fx-background-color: #fff;">
-        <effect>
-            <DropShadow />
-        </effect>
-        <children>
-            <Label layoutX="7.0" layoutY="3.0" prefHeight="23.0" prefWidth="169.0" text="Member's Information" textFill="#0a0a0a">
-                <font>
-                    <Font name="Roboto Bold" size="14.0" />
-                </font>
-            </Label>
-            <TextField editable="false" layoutX="13.0" layoutY="46.0" prefHeight="25.0" prefWidth="241.0" style="-fx-background-color: #fff;">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </TextField>
-            <TextField editable="false" layoutX="261.0" layoutY="45.0" prefHeight="25.0" prefWidth="223.0" style="-fx-background-color: #fff;">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </TextField>
-            <TextField editable="false" layoutX="491.0" layoutY="45.0" prefHeight="25.0" prefWidth="288.0" style="-fx-background-color: #fff;">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </TextField>
-            <TextField editable="false" layoutX="789.0" layoutY="45.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #fff;">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </TextField>
-            <TextField editable="false" layoutX="1013.0" layoutY="45.0" prefHeight="25.0" prefWidth="143.0" style="-fx-background-color: #fff;">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </TextField>
-            <TextField editable="false" layoutX="901.0" layoutY="45.0" prefHeight="25.0" prefWidth="105.0" style="-fx-background-color: #fff;">
-                <effect>
-                    <DropShadow />
-                </effect>
-            </TextField>
-            <Label layoutX="13.0" layoutY="23.0" opacity="0.66" prefHeight="23.0" prefWidth="62.0" text="Name" textFill="#0a0a0a">
-                <font>
-                    <Font name="Source Code Pro Bold" size="12.0" />
-                </font>
-            </Label>
-            <Label layoutX="261.0" layoutY="23.0" opacity="0.66" prefHeight="23.0" prefWidth="62.0" text="Gsuite" textFill="#0a0a0a">
-                <font>
-                    <Font name="Source Code Pro Bold" size="12.0" />
-                </font>
-            </Label>
-            <Label layoutX="491.0" layoutY="23.0" opacity="0.66" prefHeight="23.0" prefWidth="62.0" text="Role" textFill="#0a0a0a">
-                <font>
-                    <Font name="Source Code Pro Bold" size="12.0" />
-                </font>
-            </Label>
-            <Label layoutX="789.0" layoutY="21.0" opacity="0.66" prefHeight="23.0" prefWidth="105.0" text="Department" textFill="#0a0a0a">
-                <font>
-                    <Font name="Source Code Pro Bold" size="12.0" />
-                </font>
-            </Label>
-            <Label layoutX="901.0" layoutY="21.0" opacity="0.66" prefHeight="23.0" prefWidth="105.0" text="Program" textFill="#0a0a0a">
-                <font>
-                    <Font name="Source Code Pro Bold" size="12.0" />
-                </font>
-            </Label>
-            <Label layoutX="1013.0" layoutY="21.0" opacity="0.66" prefHeight="23.0" prefWidth="166.0" text="Also an SSC Member" textFill="#0a0a0a">
-                <font>
-                    <Font name="Source Code Pro Bold" size="12.0" />
-                </font>
-            </Label>
-        </children>
-    </Pane>
-    <Pane layoutX="884.0" layoutY="615.0" prefHeight="97.0" prefWidth="392.0" style="-fx-background-color: #fff;">
-        <effect>
-            <DropShadow />
-        </effect>
-        <children>
-            <JFXButton buttonType="RAISED" layoutX="103.0" layoutY="34.0" prefHeight="29.0" prefWidth="187.0" style="-fx-background-color: black;" text="Go to Contact Tab" textFill="WHITE" />
-            <Line endX="15.1865234375" layoutX="239.0" layoutY="73.0" startX="-100.0" stroke="#909090" strokeWidth="2.0" />
-            <Line endX="15.1865234375" layoutX="238.0" layoutY="22.0" startX="-100.0" stroke="#909090" strokeWidth="2.0" />
         </children>
     </Pane>
 </children></AnchorPane>

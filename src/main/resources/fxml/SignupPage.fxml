@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -77,27 +78,6 @@
             <Font name="Source Code Pro Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="roleTxt" alignment="CENTER" layoutX="494.0" layoutY="227.0" prefHeight="26.0" prefWidth="301.0" promptText="Commitee of Digital Graphics" style="-fx-background-color: white;">
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" opacity="0.7300000190734863" />
-               </color>
-            </DropShadow>
-         </effect>
-         <font>
-            <Font name="Source Code Pro" size="12.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="departmentTxt" alignment="CENTER" layoutX="800.0" layoutY="227.0" prefHeight="26.0" prefWidth="149.0" promptText="SSC" style="-fx-background-color: white;">
-         <effect>
-            <DropShadow>
-               <color>
-                  <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" opacity="0.7300000190734863" />
-               </color>
-            </DropShadow>
-         </effect>
-      </TextField>
       <Label alignment="CENTER" layoutX="800.0" layoutY="262.0" prefHeight="19.0" prefWidth="149.0" text="Department">
          <font>
             <Font name="Source Code Pro Bold" size="14.0" />
@@ -161,6 +141,24 @@
             <Font name="Source Code Pro" size="12.0" />
          </font>
       </TextField>
+      <ComboBox fx:id="roleBox" layoutX="492.0" layoutY="227.0" prefHeight="26.0" prefWidth="301.0" style="-fx-alignment: center;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ComboBox>
+      <ComboBox fx:id="departmentBox" layoutX="805.0" layoutY="227.0" prefHeight="26.0" prefWidth="142.0" style="-fx-alignment: center;">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.501960813999176" green="0.43529412150382996" blue="0.43529412150382996" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ComboBox>
    </children>
    <effect>
       <DropShadow height="1.0" radius="0.0" width="0.0" />

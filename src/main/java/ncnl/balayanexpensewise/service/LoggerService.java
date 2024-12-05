@@ -4,6 +4,7 @@ import ncnl.balayanexpensewise.beans.LabelRow;
 import ncnl.balayanexpensewise.beans.TransactionLogger;
 import ncnl.balayanexpensewise.config.DatabaseConnector;
 import ncnl.balayanexpensewise.repository.LoggerDAO;
+import ncnl.balayanexpensewise.utils.AlarmUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,22 +12,7 @@ import java.util.List;
 
 public class LoggerService implements LoggerDAO {
 
-    @Override
-    public void logTransaction(String tableName, TransactionLogger transactionLogger) {
-        final String INSERT_TRANSACTION_QUERY_TEMPLATE = "INSERT INTO %s(name, amount, price, budget) VALUES (?, ?, ?, ?)";
 
-        String query = String.format(INSERT_TRANSACTION_QUERY_TEMPLATE, tableName);
-        try (Connection connection = DatabaseConnector.getUserConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, transactionLogger.getDescription());
-            preparedStatement.setInt(2, transactionLogger.getAmount());
-            preparedStatement.setDouble(3, transactionLogger.getPrice());
-            preparedStatement.setDouble(4, transactionLogger.getBudget());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 
 
     @Override
@@ -54,4 +40,24 @@ public class LoggerService implements LoggerDAO {
         return transactionLogs;
     }
 
+
+    public int countTransactionInboxRecords() {
+        String COUNT_QUERY = "SELECT COUNT(*) FROM admin_inbox";
+        int count = 0;
+
+        try (Connection connection = DatabaseConnector.getUserConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(COUNT_QUERY);
+             ResultSet resultSet = preparedStatement.executeQuery()) {
+
+            if (resultSet.next()) {
+                count = resultSet.getInt(1);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            AlarmUtils.showErrorAlert("Error counting records: " + e.getMessage());
+        }
+
+        return count;
+    }
 }

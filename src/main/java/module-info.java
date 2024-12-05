@@ -9,6 +9,7 @@ module ncnl.balayanexpensewise {
     requires static lombok;
     requires com.jfoenix;
     requires java.desktop;
+    requires net.sf.jasperreports.core;
 
     opens ncnl.balayanexpensewise to javafx.fxml;
     opens ncnl.balayanexpensewise.beans to javafx.base;

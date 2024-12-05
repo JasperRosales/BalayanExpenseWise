@@ -88,16 +88,6 @@
                      </children></AnchorPane>
                </content>
             </Tab>
-            <Tab fx:id="tabSetting" text="Setting">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-               </content>
-            </Tab>
-            <Tab fx:id="tabContact" closable="false" text="Contact">
-               <content>
-                  <AnchorPane cacheShape="false" centerShape="false" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" scaleShape="false" />
-               </content>
-            </Tab>
             <Tab fx:id="tabCredits" text="Credits">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -376,11 +366,6 @@
                         </Pane>
                      </children>
                   </AnchorPane>
-               </content>
-            </Tab>
-            <Tab fx:id="tabDetails" text="Details">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                </content>
             </Tab>
          </tabs>

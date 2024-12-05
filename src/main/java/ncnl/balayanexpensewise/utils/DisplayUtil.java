@@ -96,9 +96,7 @@ public class DisplayUtil {
      * @return the calculated total expense amount formatted to two decimal places (e.g., ₱1000.00)
      */
     public static String getTotalExpenseByMonth(String tableName, String month) {
-        // Convert the month name to its numeric value (e.g., January -> 1)
         int monthNumber = convertMonthToInt(month);
-        // SQL query to calculate total expense for the given month
 
         String EXPENSE_QUERY = "SELECT SUM(total_price) AS totalExpense FROM " + tableName +
                 " WHERE category = 'Expense' AND MONTH(transaction_date) = ?";
@@ -107,10 +105,8 @@ public class DisplayUtil {
         try (Connection connection = DatabaseConnector.getUserConnection();
              PreparedStatement expenseStatement = connection.prepareStatement(EXPENSE_QUERY)) {
 
-            // Set the month parameter in the query
             expenseStatement.setInt(1, monthNumber);
 
-            // Retrieve the total amount for "Expense"
             try (ResultSet expenseResult = expenseStatement.executeQuery()) {
                 if (expenseResult.next()) {
                     totalExpense = expenseResult.getDouble("totalExpense");
@@ -127,18 +123,13 @@ public class DisplayUtil {
 
     public static List<Integer> getYearlyExpensesFromDatabase(String tableName) {
         String QUERY = """
-        SELECT MONTH(transaction_date) AS month, 
-               SUM(total_price) AS totalExpense
-        FROM %s
-        WHERE category = 'Expense' 
-          AND YEAR(transaction_date) = YEAR(CURRENT_DATE)
-        GROUP BY MONTH(transaction_date)
-        ORDER BY MONTH(transaction_date)
+        SELECT MONTH(transaction_date) AS month, SUM(total_price) AS totalExpense FROM %s WHERE category = 'Expense' 
+        AND YEAR(transaction_date) = YEAR(CURRENT_DATE) GROUP BY MONTH(transaction_date) ORDER BY MONTH(transaction_date) 
         """.formatted(tableName);
 
         List<Integer> yearlyExpenses = new ArrayList<>();
         for (int i = 0; i < 12; i++) {
-            yearlyExpenses.add(0); // Initialize with zero for all months
+            yearlyExpenses.add(0);
         }
 
         try (Connection connection = DatabaseConnector.getUserConnection();
@@ -149,7 +140,7 @@ public class DisplayUtil {
                     int month = resultSet.getInt("month");
                     int totalExpense = resultSet.getInt("totalExpense");
 
-                    yearlyExpenses.set(month - 1, totalExpense); // Update the specific month index
+                    yearlyExpenses.set(month - 1, totalExpense);
                 }
             }
         } catch (Exception e) {

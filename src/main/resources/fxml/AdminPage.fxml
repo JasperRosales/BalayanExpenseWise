@@ -67,11 +67,11 @@
                     <Font name="Roboto Black" size="14.0" />
                 </font>
             </Label>
-            <TableView fx:id="adminTable" layoutX="17.0" layoutY="49.0" prefHeight="380.0" prefWidth="1231.0" style="-fx-alignment: center;">
+            <TableView fx:id="transTable" layoutX="17.0" layoutY="49.0" prefHeight="380.0" prefWidth="1231.0" style="-fx-alignment: center;">
               <columns>
                 <TableColumn fx:id="idCol" editable="false" prefWidth="36.0" sortable="false" style="-fx-alignment: center;" text="Id" />
                 <TableColumn fx:id="descriptionCol" editable="false" minWidth="0.0" prefWidth="260.0" sortable="false" style="-fx-alignment: center;" text="Description" />
-                  <TableColumn fx:id="departmentCol" editable="false" minWidth="0.0" prefWidth="90.0" sortable="false" style="-fx-alignment: center;" text="Department" />
+                  <TableColumn fx:id="departmentTransCol" editable="false" minWidth="0.0" prefWidth="90.0" sortable="false" style="-fx-alignment: center;" text="Department" />
                   <TableColumn fx:id="categoryCol" editable="false" minWidth="0.0" prefWidth="89.0" sortable="false" style="-fx-alignment: center;" text="Category" />
                   <TableColumn fx:id="amountCol" editable="false" minWidth="0.0" prefWidth="88.0" sortable="false" style="-fx-alignment: center;" text="Amount" />
                   <TableColumn fx:id="priceCol" editable="false" minWidth="0.0" prefWidth="123.0" sortable="false" style="-fx-alignment: center;" text="Price" />
@@ -96,13 +96,14 @@
                     <Font name="Roboto Black" size="14.0" />
                 </font>
             </Label>
-            <TableView fx:id="userTable" layoutX="9.0" layoutY="43.0" prefHeight="287.0" prefWidth="681.0">
+            <TableView fx:id="userTable" layoutX="6.0" layoutY="43.0" prefHeight="287.0" prefWidth="687.0">
                <columns>
-                  <TableColumn fx:id="nameCol" minWidth="0.0" prefWidth="173.0" text="Name" />
-                  <TableColumn fx:id="roleCol" minWidth="0.0" prefWidth="133.0" text="Role" />
-                  <TableColumn fx:id="purposeCol" minWidth="0.0" prefWidth="103.0" text="Purpose" />
-                  <TableColumn fx:id="newRoleCol" minWidth="0.0" prefWidth="151.0" text="New Role" />
-                  <TableColumn fx:id="userControl" minWidth="0.0" prefWidth="120.0" text="Control" />
+                  <TableColumn fx:id="idUserCol" minWidth="0.0" prefWidth="33.0" style="-fx-alignment: center;" text="Id" />
+                  <TableColumn fx:id="nameCol" minWidth="0.0" prefWidth="151.0" style="-fx-alignment: center;" text="Name" />
+                  <TableColumn fx:id="roleCol" minWidth="0.0" prefWidth="172.0" style="-fx-alignment: center;" text="Role" />
+                  <TableColumn fx:id="purposeCol" minWidth="0.0" prefWidth="126.0" style="-fx-alignment: center;" text="Purpose" />
+                  <TableColumn fx:id="departmentUserCol" minWidth="0.0" prefWidth="95.0" style="-fx-alignment: center;" text="Department" />
+                  <TableColumn fx:id="userControl" minWidth="0.0" prefWidth="108.0" style="-fx-alignment: center;" text="Control" />
                </columns>
                <effect>
                   <DropShadow />

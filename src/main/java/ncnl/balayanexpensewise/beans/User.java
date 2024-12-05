@@ -10,7 +10,6 @@ public class User {
     protected String firstName;
     protected String middleName;
     protected String lastName;
-    private Date birthday;
     private String department;
     protected String role;
     protected String gsuite;
@@ -44,6 +43,7 @@ public class User {
     public String getFullname(String firstName, String middleName, String lastName){
         return firstName + middleName + lastName;
     }
+
 
 
 

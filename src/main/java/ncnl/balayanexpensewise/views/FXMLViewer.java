@@ -27,7 +27,6 @@ public class FXMLViewer {
      * @param view retries a parameter of path from resource
      */
 
-
     public void loadFXML(FXMLPath view) throws Exception {
         try {
             FXMLLoader loader = new FXMLLoader(FXMLViewer.class.getResource(view.getPath()));

@@ -11,36 +11,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import ncnl.balayanexpensewise.config.DatabaseConnector;
+import ncnl.balayanexpensewise.utils.AlarmUtils;
 
 public class AdminService implements AdminDAO {
-
-    Encryptor encryptor = new Encryptor();
-
-    @Override
-    public void addAdmin(Admin admin) {
-        String creationQuery = "INSERT INTO admins (srcode, firstName, middleName, lastName, admin_role, gsuite, has_dual_roles, other_role, password) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-        try (Connection conn = DatabaseConnector.getUserConnection()) {
-            PreparedStatement psmt = conn.prepareStatement(creationQuery);
-
-            psmt.setString(1, admin.getSrcode());
-            psmt.setString(2, admin.getFirstName());
-            psmt.setString(3, admin.getMiddleName());
-            psmt.setString(4, admin.getLastName());
-            psmt.setString(5, admin.getRole());
-            psmt.setString(6, admin.getGsuite());
-            psmt.setBoolean(7, admin.isHasDualRoles());
-            psmt.setString(8, admin.getOtherRole());
-            psmt.setString(9, encryptor.createHashPassword(admin.getPassword()));
-
-            psmt.executeUpdate();
-
-        } catch (SQLException e) {
-            System.out.println("[ERROR] Failed to create admin.");
-            e.printStackTrace();
-        }
-    }
 
     public Admin validateAdmin(String srcode, String password) {
         Admin admin = null;
@@ -83,44 +56,75 @@ public class AdminService implements AdminDAO {
         return admin;
     }
 
+
     @Override
-    public List<Admin> getAllAdmins() {
-        List<Admin> adminList = new ArrayList<>();
-        String query = "SELECT * FROM admins";
+    public void deleteAdmin(Integer tableId) {
+        String DELETE_ADMIN = "DELETE FROM admins WHERE table_id =?";
 
         try (Connection conn = DatabaseConnector.getUserConnection()) {
-            PreparedStatement psmt = conn.prepareStatement(query);
-            ResultSet rs = psmt.executeQuery();
-
-            while (rs.next()) {
-                Admin admin = new Admin(
-                        rs.getString("srcode"),
-                        rs.getString("firstName"),
-                        rs.getString("middleName"),
-                        rs.getString("lastName"),
-                        rs.getString("admin_role"),
-                        rs.getString("gsuite"),
-                        rs.getBoolean("has_dual_roles"),
-                        rs.getString("other_role"),
-                        rs.getString("password") // Hash password
-                );
-                adminList.add(admin);
-            }
+            PreparedStatement psmt = conn.prepareStatement(DELETE_ADMIN);
+            psmt.setInt(1, tableId);
+            psmt.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return adminList;
     }
 
+    public Integer getTableIdByRoleAndDepartment(String role, String department) {
+        String SELECT_TABLE_ID = "SELECT table_id FROM admins WHERE admin_role = ?";
+
+        try (Connection conn = DatabaseConnector.getUserConnection()) {
+            PreparedStatement psmt = conn.prepareStatement(SELECT_TABLE_ID);
+            psmt.setString(1, role);
+            ResultSet rs = psmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt("table_id");
+            } else {
+                System.out.println("No record found with the specified role and department.");
+                return -1;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+
     @Override
-    public Admin getAdminById(String srcode) {
+    public void updateAdmin(Integer tableId ,Admin admin) {
+        String UPDATE_ADMIN = "UPDATE admins SET srcode = ?, firstName = ?, middleName = ?, lastName = ?, admin_role = ?, gsuite = ?, has_dual_roles = ?, other_role = ?, password = ? WHERE table_id = ?";
+
+        try (Connection conn = DatabaseConnector.getUserConnection()) {
+            PreparedStatement psmt = conn.prepareStatement(UPDATE_ADMIN);
+            psmt.setString(1, admin.getSrcode());
+            psmt.setString(2, admin.getFirstName());
+            psmt.setString(3, admin.getMiddleName());
+            psmt.setString(4, admin.getLastName());
+            psmt.setString(5, admin.getRole());
+            psmt.setString(6, admin.getGsuite());
+            psmt.setBoolean(7, admin.isHasDualRoles());
+            psmt.setString(8, admin.getOtherRole());
+            psmt.setString(9, admin.getPassword());
+            psmt.setInt(10, tableId);
+            psmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public Admin findByFirstLastName(String firstName, String lastName){
         Admin admin = null;
-        String query = "SELECT * FROM admins WHERE srcode = ?";
+        String query = "SELECT * FROM admins WHERE firstName = ? and lastName = ?";
 
         try (Connection conn = DatabaseConnector.getUserConnection()) {
             PreparedStatement psmt = conn.prepareStatement(query);
-            psmt.setString(1, srcode);
+            psmt.setString(1, firstName);
+            psmt.setString(2, lastName);
             ResultSet rs = psmt.executeQuery();
 
             if (rs.next()) {
@@ -143,41 +147,8 @@ public class AdminService implements AdminDAO {
         return admin;
     }
 
-    @Override
-    public void deleteAdmin(String srcode) {
-        String query = "DELETE FROM admins WHERE srcode = ?";
 
-        try (Connection conn = DatabaseConnector.getUserConnection()) {
-            PreparedStatement psmt = conn.prepareStatement(query);
-            psmt.setString(1, srcode);
-            psmt.executeUpdate();
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void updateAdmin(Admin admin) {
-        String query = "UPDATE admins SET firstName = ?, middleName = ?, lastName = ?, admin_role = ?, gsuite = ?, has_dual_roles = ?, other_role = ?, password = ? WHERE srcode = ?";
-
-        try (Connection conn = DatabaseConnector.getUserConnection()) {
-            PreparedStatement psmt = conn.prepareStatement(query);
-            psmt.setString(1, admin.getFirstName());
-            psmt.setString(2, admin.getMiddleName());
-            psmt.setString(3, admin.getLastName());
-            psmt.setString(4, admin.getRole());
-            psmt.setString(5, admin.getGsuite());
-            psmt.setBoolean(6, admin.isHasDualRoles());
-            psmt.setString(7, admin.getOtherRole());
-            psmt.setString(8, admin.getPassword());
-            psmt.setString(9, admin.getSrcode());
-            psmt.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }
 
 

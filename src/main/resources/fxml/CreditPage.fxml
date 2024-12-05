@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -11,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ncnl.balayanexpensewise.controller.CreditController" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="815.0" prefWidth="1279.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ncnl.balayanexpensewise.controller.CreditController">
 <children>
     <Pane layoutX="7.0" layoutY="20.0" prefHeight="775.0" prefWidth="407.0" style="-fx-background-color: #ffff;">
         <effect>
@@ -157,22 +156,22 @@
                     <Font name="Roboto Black" size="14.0" />
                 </font>
             </Label>
-            <TextArea editable="false" layoutX="22.0" layoutY="566.0" prefHeight="123.0" prefWidth="363.0" text="• Developed the UI of the project&#10;• Designed the Dashboards and Panels&#10;• Help organized the data in charts&#10;• Customized the legends based on organization&#10;• Implemented Simple but Aesthetic design&#10;• Helped in the Spring boot UI extension for mobile/web for flexibility" wrapText="true">
+            <TextArea editable="false" layoutX="22.0" layoutY="566.0" prefHeight="123.0" prefWidth="363.0" text="• Developed the UI of the project&#10;• Designed the Dashboards and Panels&#10;• Help organized the data in charts&#10;• Customized the legends based on organization&#10;• Implemented Simple but Aesthetic design&#10;" wrapText="true">
                 <font>
                     <Font name="Source Code Pro" size="12.0" />
                 </font>
             </TextArea>
-            <Label layoutX="73.0" layoutY="280.0" prefHeight="25.0" prefWidth="320.0" text="Ron Andrew ? Arizala">
+            <Label layoutX="73.0" layoutY="280.0" prefHeight="25.0" prefWidth="320.0" text="Ron Andrew I. Arizala">
                 <font>
                     <Font name="Source Code Pro Bold" size="14.0" />
                 </font>
             </Label>
-            <Label layoutX="77.0" layoutY="315.0" prefHeight="25.0" prefWidth="320.0" text="Lorem">
+            <Label layoutX="77.0" layoutY="315.0" prefHeight="25.0" prefWidth="320.0" text="23-13796">
                 <font>
                     <Font name="Source Code Pro Bold" size="14.0" />
                 </font>
             </Label>
-            <Label layoutX="77.0" layoutY="359.0" prefHeight="25.0" prefWidth="320.0" text="Lorem">
+            <Label layoutX="77.0" layoutY="359.0" prefHeight="25.0" prefWidth="320.0" text="23-13796@g.batstate-u.edu.ph">
                 <font>
                     <Font name="Source Code Pro Bold" size="14.0" />
                 </font>
@@ -253,17 +252,17 @@
                     <Font name="Source Code Pro" size="12.0" />
                 </font>
             </TextArea>
-            <Label layoutX="66.0" layoutY="277.0" prefHeight="25.0" prefWidth="320.0" text="Raniel Carl ? Lopez">
+            <Label layoutX="66.0" layoutY="277.0" prefHeight="25.0" prefWidth="320.0" text="Raniel Carl M. Lopez">
                 <font>
                     <Font name="Source Code Pro Bold" size="14.0" />
                 </font>
             </Label>
-            <Label layoutX="70.0" layoutY="312.0" prefHeight="25.0" prefWidth="320.0" text="Lorem">
+            <Label layoutX="70.0" layoutY="312.0" prefHeight="25.0" prefWidth="320.0" text="23-18107">
                 <font>
                     <Font name="Source Code Pro Bold" size="14.0" />
                 </font>
             </Label>
-            <Label layoutX="70.0" layoutY="356.0" prefHeight="25.0" prefWidth="320.0" text="Lorem">
+            <Label layoutX="70.0" layoutY="356.0" prefHeight="25.0" prefWidth="320.0" text="23-18107@g.batstate-u.edu.ph">
                 <font>
                     <Font name="Source Code Pro Bold" size="14.0" />
                 </font>

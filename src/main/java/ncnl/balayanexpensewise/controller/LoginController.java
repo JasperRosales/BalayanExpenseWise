@@ -82,7 +82,6 @@ public class LoginController extends GenericController implements Initializable 
         String password = passwordTxt.getText();
 
 
-
         if (isAdminMode.get()) {
             userLoggerService.setAdminMode(true);
 

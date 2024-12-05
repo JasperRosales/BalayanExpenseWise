@@ -28,7 +28,7 @@
             <Font name="Roboto Black" size="51.0" />
         </font>
     </Label>
-    <TextField fx:id="srcodeTxt" alignment="CENTER" layoutX="121.0" layoutY="253.0" prefHeight="26.0" prefWidth="301.0" promptText="20-12345@g.batstate-u.edu.ph" style="-fx-background-color: white;">
+    <TextField fx:id="srcodeTxt" alignment="CENTER" layoutX="121.0" layoutY="253.0" prefHeight="26.0" prefWidth="301.0" promptText="20-12345" style="-fx-background-color: white;">
         <effect>
             <DropShadow>
                 <color>

@@ -11,7 +11,10 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.control.*;
 import javafx.util.Duration;
 import ncnl.balayanexpensewise.beans.*;
+import ncnl.balayanexpensewise.service.LoggerService;
+import ncnl.balayanexpensewise.service.ScheduleService;
 import ncnl.balayanexpensewise.service.TransactionService;
+import ncnl.balayanexpensewise.service.UserInboxService;
 import ncnl.balayanexpensewise.utils.DisplayUtil;
 
 import java.net.URL;
@@ -25,8 +28,7 @@ public class SSCController extends GenericController implements Initializable {
 
 
     @FXML
-    private JFXButton shortcutCICS,shortcutCET, shortcutManage, shortcutReport, shortcutSchedule,
-            submitBtn, resetBtn;
+    private JFXButton submitBtn, resetBtn;
 
     @FXML
     private TextField nameFieldR1, quantityR1, priceR1,
@@ -51,14 +53,20 @@ public class SSCController extends GenericController implements Initializable {
 
     @FXML
     private Label currentDate, currentTime,
-            budgetSSC, budgetCICS, budgetCET, nextEventDate;
+            budgetSSC, budgetCICS, budgetCET, nextEventDate,
+            transferInboxCount, userInboxCount;
 
     private List<ExpenseRow> rows;
 
-    Calendar calendar = new Calendar();
-    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy");
-    DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm a");
-    TransactionService transactionService = new TransactionService();
+    private final Calendar calendar = new Calendar();
+    private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy");
+    private final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm a");
+    private final TransactionService transactionService = new TransactionService();
+    private final ScheduleService scheduleService = new ScheduleService();
+    private final LoggerService loggerService = new LoggerService();
+    private final UserInboxService userInboxService = new UserInboxService();
+    private final Schedule nearDate = scheduleService.getNearestEvent();
+
 
 
     @Override
@@ -88,7 +96,7 @@ public class SSCController extends GenericController implements Initializable {
         timeline.play();
 
         Timeline updateTimeline = new Timeline(
-                new KeyFrame(Duration.seconds(0), event -> updateBudgetData()),
+                new KeyFrame(Duration.seconds(0), event -> updateData()),
                 new KeyFrame(Duration.seconds(0), event -> addDataToPeriodChart()),
                 new KeyFrame(Duration.seconds(5)) // Trigger every 5 seconds
         );
@@ -193,6 +201,7 @@ public class SSCController extends GenericController implements Initializable {
         }
     }
 
+
     private boolean isValidQuantity(String quantityText) {
         try {
             double quantity = Double.parseDouble(quantityText);
@@ -224,7 +233,7 @@ public class SSCController extends GenericController implements Initializable {
         submitBtn.setDisable(true);
     }
 
-    private void updateBudgetData() {
+    private void updateData() {
         monthlyChart.getData().clear();
         addDataToChart();
 
@@ -232,7 +241,10 @@ public class SSCController extends GenericController implements Initializable {
         budgetCICS.setText("₱ " + DisplayUtil.getBudget(Table.getTableName("CICS")));
         budgetCET.setText("₱ " + DisplayUtil.getBudget(Table.getTableName("CET")));
 
-//        nextEventDate.setText(calendar.getNextEventDate());
+        transferInboxCount.setText(String.valueOf(loggerService.countTransactionInboxRecords()));
+        userInboxCount.setText(String.valueOf(userInboxService.countUserInboxRecords()));
+
+        nextEventDate.setText(nearDate.getEventName());
     }
 
 

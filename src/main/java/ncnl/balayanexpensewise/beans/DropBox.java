@@ -1,6 +1,8 @@
 package ncnl.balayanexpensewise.beans;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 import javafx.scene.control.ComboBox;
 
 public class DropBox {
@@ -18,5 +20,13 @@ public class DropBox {
         }
     }
 
+    /**
+     * Overloaded version of populateComboBox when there are no assigned roles.
+     * @param comboBox The ComboBox to populate.
+     * @param roles The list of roles to display in the ComboBox.
+     */
+    public static void populateComboBox(ComboBox<String> comboBox, List<String> roles) {
+        comboBox.getItems().setAll(roles);
+    }
 
 }

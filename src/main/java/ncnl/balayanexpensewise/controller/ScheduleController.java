@@ -7,28 +7,29 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.util.Duration;
-import ncnl.balayanexpensewise.beans.Calendar;
 import ncnl.balayanexpensewise.beans.Schedule;
+import ncnl.balayanexpensewise.repository.ScheduleDAO;
 import ncnl.balayanexpensewise.service.ScheduleService;
 import ncnl.balayanexpensewise.utils.AlarmUtils;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ScheduleController implements Initializable {
 
     @FXML
-    private TextField findEventField, eventNameField;
+    private TextField findEventField, eventNameField, eventNameChange;
 
     @FXML
-    private DatePicker findEventDatePicker, dateManageEvent;
+    private DatePicker dateManageEvent;
 
     @FXML
     private RadioButton radioAdd, radioRemove, editEvent;
@@ -37,10 +38,10 @@ public class ScheduleController implements Initializable {
     private TextArea shortDescTxt;
 
     @FXML
-    private ComboBox<String> orgBox;
+    private Label nearestEvent, nearestEventDate;
 
     @FXML
-    private JFXButton findBtn, submitControlBtn, alertBtn;
+    private JFXButton submitControlBtn;
 
     @FXML
     private TableView schedTable;
@@ -48,43 +49,114 @@ public class ScheduleController implements Initializable {
     @FXML
     private TableColumn<Schedule, String> eventNameCol, dateCol, desccriptionCol;
 
+    @FXML
+    private ToggleGroup eventModes;
+
     private ObservableList<Schedule> scheduleList = FXCollections.observableArrayList();
 
 
-    private Calendar calendar = new Calendar();
     private ScheduleService scheduleService = new ScheduleService();
-
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        dateManageEvent.setDayCellFactory(picker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate date, boolean empty) {
+                super.updateItem(date, empty);
+                setDisable(empty || date.isBefore(LocalDate.now()));
+            }
+        });
 
-        orgBox.getItems().addAll("SSC", "CICS", "CET");
-        orgBox.setValue("SSC");
+        eventModes = new ToggleGroup();
+        radioAdd.setToggleGroup(eventModes);
+        radioRemove.setToggleGroup(eventModes);
+        editEvent.setToggleGroup(eventModes);
+
+        eventNameChange.setDisable(true);
+        displayAllEvents();
+        displayNearestEvent();
+
+        Timeline updateTimeline = new Timeline(
+                new KeyFrame(Duration.seconds(0), event -> displayAllEvents()),
+                new KeyFrame(Duration.seconds(0), event -> displayNearestEvent()),
+                new KeyFrame(Duration.seconds(3))
+        );
+        updateTimeline.setCycleCount(Timeline.INDEFINITE);
+        updateTimeline.play();
 
         eventNameCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEventName()));
         dateCol.setCellValueFactory(cellData -> new SimpleObjectProperty<>(cellData.getValue().getDate()).asString());
         desccriptionCol.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescription()));
 
-        schedTable.setItems(scheduleList);
+        schedTable.setRowFactory(table -> new TableRow<Schedule>() {
+            @Override
+            protected void updateItem(Schedule schedule, boolean empty) {
+                super.updateItem(schedule, empty);
 
-        Timeline updateTimeline = new Timeline(
-                new KeyFrame(Duration.seconds(0), event -> displayAllEvents()),
-                new KeyFrame(Duration.seconds(5))
-        );
+                if (schedule == null || empty) {
+                    setStyle("");
+                } else {
+                    LocalDate rowDate = schedule.getDate();
+                    if (rowDate.isBefore(LocalDate.now())) {
+                        setStyle("-fx-background-color: red; -fx-text-fill: white;");
+                    } else {
+                        setStyle("");
+                    }
+                }
+            }
+        });
 
+        FilteredList<Schedule> filteredList = new FilteredList<>(scheduleList, b -> true);
 
+        findEventField.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(schedule -> {
+                if (newValue == null || newValue.isEmpty() || newValue.isBlank()) {
+                    return true;
+                }
+
+                String searchKeyword = newValue.toLowerCase();
+                String dateAsString = schedule.getDate().toString();
+
+                return schedule.getEventName().toLowerCase().contains(searchKeyword) ||
+                        dateAsString.toLowerCase().contains(searchKeyword);
+            });
+        });
+
+        schedTable.setItems(filteredList);
+
+        schedTable.setOnMouseClicked(event -> {
+            Schedule selectedSchedule = (Schedule) schedTable.getSelectionModel().getSelectedItem();
+            if (selectedSchedule != null) {
+                populateFields(selectedSchedule);
+            }
+        });
+
+        eventModes.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == editEvent) {
+                eventNameField.setDisable(true);
+                eventNameChange.setDisable(false);
+            } else {
+                eventNameChange.clear();
+                eventNameChange.setDisable(true);
+                eventNameField.setDisable(false);
+            }
+        });
     }
 
-
-    public void findEvent(ActionEvent actionEvent) {
-        String searchQuery = findEventField.getText();
-        LocalDate selectedDate = findEventDatePicker.getValue();
-
-        displayEvent(searchQuery ,selectedDate);
+    private void populateFields(Schedule schedule) {
+        eventNameField.setText(schedule.getEventName());
+        eventNameChange.setText(schedule.getEventName());
+        dateManageEvent.setValue(schedule.getDate());
+        shortDescTxt.setText(schedule.getDescription());
     }
 
+    private void clearFields() {
+        eventNameField.clear();
+        shortDescTxt.clear();
+        dateManageEvent.setValue(null);
 
+    }
 
     public void handleEvents(ActionEvent actionEvent) {
         String eventName = eventNameField.getText();
@@ -92,52 +164,44 @@ public class ScheduleController implements Initializable {
         LocalDate eventDate = dateManageEvent.getValue();
 
         if (radioAdd.isSelected()) {
+            eventNameChange.setDisable(true);
             Schedule schedule = new Schedule(eventName, eventDate, description);
             scheduleService.addSchedule(schedule);
-            System.out.println("Event added: " + eventName + " on " + eventDate);
+
         }
         else if (radioRemove.isSelected()) {
-            Schedule schedule = scheduleService.getScheduleById(Integer.parseInt(eventName));
-            if (schedule != null) {
-                scheduleService.deleteSchedule(schedule.getEventName());
-                System.out.println("Event removed: " + eventName + " on " + eventDate);
+            Integer idDelete = scheduleService.getScheduleIdByDetails(eventName,eventDate);
+            if (eventName != null) {
+                scheduleService.deleteSchedule(idDelete);
+            } else{
+                AlarmUtils.showErrorAlert("Something went wrong");
             }
         }
         else if (editEvent.isSelected()) {
-            Schedule schedule = scheduleService.getScheduleById(Integer.parseInt(eventName));
-            if (schedule != null) {
-                schedule.setDescription(description);
-                schedule.setDate(eventDate);
-                scheduleService.updateSchedule(schedule.getEventName(), schedule);
-                System.out.println("Event edited: " + eventName + " on " + eventDate);
+            eventNameField.setDisable(true);
+            Schedule sched = (Schedule) schedTable.getSelectionModel().getSelectedItem();
+            Integer idUpdate = scheduleService.getScheduleIdByDetails(eventName, sched.getEventDate());
+
+            if (idUpdate != null) {
+                Schedule schedule = new Schedule(eventNameChange.getText(), eventDate, description);
+                scheduleService.updateSchedule(idUpdate, schedule);
+            } else {
+                AlarmUtils.showErrorAlert("Something went wrong");
             }
+        }else{
+            AlarmUtils.showErrorAlert("Click a row first!");
         }
+
+        clearFields();
     }
 
-    private void displayEvent(String name, LocalDate date) {
-            String eventName = name;
-            LocalDate eventDate = date;
-
-            List<Schedule> events = scheduleService.getEventsByNameOrDate(eventName, eventDate);
-
-            if (events.isEmpty()) {
-                AlarmUtils.showErrorAlert("No events found for the given search criteria.");
-            } else {
-                ObservableList<Schedule> eventList = FXCollections.observableArrayList(events);
-                schedTable.setItems(eventList);
-                AlarmUtils.showCustomSuccessAlert("Successfully added");
-            }
-
+    public void displayNearestEvent(){
+        nearestEvent.setText(scheduleService.getNearestEvent().getEventName());
+        nearestEventDate.setText(String.valueOf(scheduleService.getNearestEvent().getEventDate()));
     }
 
     private void displayAllEvents() {
-        List<Schedule> schedules = scheduleService.getAllSchedules();
-
-        scheduleList.clear();
-
-        scheduleList.addAll(schedules);
-
-        schedTable.setItems(scheduleList);
+        scheduleList.setAll(scheduleService.getAllSchedules());
     }
 
 }

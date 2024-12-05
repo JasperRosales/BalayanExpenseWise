@@ -4,10 +4,6 @@ import javafx.scene.Node;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-
-
-
-import java.util.List;
 import java.util.regex.Pattern;
 
 public class Validator {
@@ -43,6 +39,22 @@ public class Validator {
                 ((PasswordField) field).clear();
             }
         }
+    }
+
+    /**
+     * Generates a G Suite email address based on the srcode.
+     * The email format is: srcode@g.batstate-u.edu.ph
+     *
+     * @param srcode the srcode string (e.g., "23-19300")
+     * @return the formatted G Suite email string (e.g., "23-19300@g.batstate-u.edu.ph")
+     */
+    public static String generateGSuiteEmail(String srcode) {
+        if (srcode == null || srcode.trim().isEmpty()) {
+            throw new IllegalArgumentException("srcode cannot be null or empty.");
+        }
+
+        // Construct the G Suite email by appending the domain.
+        return srcode + "@g.batstate-u.edu.ph";
     }
 
 

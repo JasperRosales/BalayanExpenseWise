@@ -270,11 +270,11 @@ public class CETController implements Initializable {
         cetSeries.setName("CET");
 
 
-        double cicsExpense = Double.parseDouble(DisplayUtil.getTotalExpenseByMonth(Table.getTableName("CET"), selectedMonth));
-        double cicsService = Double.parseDouble(DisplayUtil.getTotalServiceByMonth(Table.getTableName("CET"), selectedMonth));
+        double cetExpense = Double.parseDouble(DisplayUtil.getTotalExpenseByMonth(Table.getTableName("CET"), selectedMonth));
+        double cetService = Double.parseDouble(DisplayUtil.getTotalServiceByMonth(Table.getTableName("CET"), selectedMonth));
 
-        cetSeries.getData().add(new BarChart.Data<>("Expense", cicsExpense));
-        cetSeries.getData().add(new BarChart.Data<>("Service", cicsService));
+        cetSeries.getData().add(new BarChart.Data<>("Expense", cetExpense));
+        cetSeries.getData().add(new BarChart.Data<>("Service", cetService));
 
 
         barCET.getData().clear();
@@ -360,7 +360,6 @@ public class CETController implements Initializable {
         }
 
         pieChart.getData().clear();
-
         for (int i = startMonth; i <= endMonth; i++) {
             int value = i < cetData.size() ? cetData.get(i) : 0;
             if (value > 0) {

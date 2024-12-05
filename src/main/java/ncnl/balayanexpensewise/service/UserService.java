@@ -1,62 +1,24 @@
 package ncnl.balayanexpensewise.service;
 
-import eu.hansolo.tilesfx.Alarm;
 import ncnl.balayanexpensewise.beans.Encryptor;
 import ncnl.balayanexpensewise.beans.User;
 import ncnl.balayanexpensewise.config.DatabaseConnector;
-import ncnl.balayanexpensewise.repository.UserDAO;
 import ncnl.balayanexpensewise.utils.AlarmUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UserService implements UserDAO {
+public class UserService{
 
-    private final Encryptor encryptor = new Encryptor();
+    Encryptor encryptor = new Encryptor();
 
-    @Override
-    public void createUser(User user) {
-        String creationQuery = "INSERT INTO user(srcode, firstName, middleName, lastName, department, role, gsuite, password) values (?,?,?,?,?,?,?,?)";
-
-        try(Connection conn = DatabaseConnector.getUserConnection()){
-            PreparedStatement psmt = conn.prepareStatement(creationQuery);
-
-            psmt.setString(1, user.getSrcode());
-            psmt.setString(2, user.getFirstName());
-            psmt.setString(3, user.getMiddleName());
-            psmt.setString(4, user.getLastName());
-            psmt.setString(5, user.getDepartment());
-            psmt.setString(6, user.getRole());
-            psmt.setString(7, user.getGsuite());
-            psmt.setString(8, encryptor.createHashPassword(user.getPassword()));
-
-            psmt.executeUpdate();
-
-        } catch (SQLException e) {
-            AlarmUtils.showErrorAlert("Error on creating user");
-            e.printStackTrace();
-        }
-    }
-
-
-
-    @Override
-    public void deleteUser(String id) {
-
-    }
-
-    @Override
-    public void updateUser(User userOptional) {
-
-    }
-
-    @Override
     public User validateUser(String srcode, String password) {
         User user = null;
-        String authUser = "SELECT * FROM user WHERE srcode = ?";
+        String authUser = "SELECT * FROM users WHERE srcode = ?";
 
         try (Connection conn = DatabaseConnector.getUserConnection()){
             PreparedStatement psmt = conn.prepareStatement(authUser);
@@ -89,5 +51,128 @@ public class UserService implements UserDAO {
 
         return user;
     }
+
+
+
+
+    public List<String> getAssignedRolesByDepartment(String department) {
+        List<String> assignedRoles = new ArrayList<>();
+
+        String table = ("SSC".equals(department)) ? "admins" : "users";
+        String role = ("SSC". equals(department)) ? "admin_role" : "role";
+        String GET_ROLES_DISTINCT_QUERY = "SELECT " + role + " FROM " + table + "  WHERE department = ? and firstName = ?";
+
+        try (Connection conn = DatabaseConnector.getUserConnection()) {
+            PreparedStatement psmt = conn.prepareStatement(GET_ROLES_DISTINCT_QUERY);
+            psmt.setString(1, department);
+            psmt.setString(2, "firstName");
+            ResultSet rs = psmt.executeQuery();
+
+            while (rs.next()) {
+                assignedRoles.add(rs.getString(role));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return assignedRoles;
+    }
+
+    public User findByFirstLastName(String firstName, String lastName) {
+        User user = null;
+        String authUser = "SELECT * FROM users WHERE firstName = ? and lastName = ?";
+
+        try (Connection conn = DatabaseConnector.getUserConnection()){
+            PreparedStatement psmt = conn.prepareStatement(authUser);
+
+            psmt.setString(1, firstName);
+            psmt.setString(2, lastName);
+            ResultSet rs = psmt.executeQuery();
+
+            if(rs.next()){
+                user = new User(
+                        rs.getString("srcode"),
+                        rs.getString( "firstName"),
+                        rs.getString("middleName"),
+                        rs.getString("lastName"),
+                        rs.getString("department"),
+                        rs.getString("role"),
+                        rs.getString("gsuite"),
+                        rs.getString("password")
+                );
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return user;
+
+    }
+
+    public Integer getIdByRoleAndDepartment(String role, String department) {
+        String GET_ID_QUERY = "SELECT table_id FROM users WHERE role = ? AND department = ?";
+        Integer tableId = null;
+
+        try (Connection connection = DatabaseConnector.getUserConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_ID_QUERY)) {
+
+            preparedStatement.setString(1, role);
+            preparedStatement.setString(2, department);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    tableId = resultSet.getInt("table_id");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return tableId;
+    }
+
+
+    public void updateUserById(int tableId, User updatedUser) {
+        String UPDATE_USER_QUERY = "UPDATE users SET srcode = ?, firstName = ?, middleName = ?, lastName = ?, gsuite = ?, password = ? WHERE table_id = ?";
+
+        try (Connection conn = DatabaseConnector.getUserConnection();
+             PreparedStatement psmt = conn.prepareStatement(UPDATE_USER_QUERY)) {
+
+            psmt.setString(1, updatedUser.getSrcode());
+            psmt.setString(2, updatedUser.getFirstName());
+            psmt.setString(3, updatedUser.getMiddleName());
+            psmt.setString(4, updatedUser.getLastName());
+            psmt.setString(5, updatedUser.getGsuite());
+            psmt.setString(6, updatedUser.getPassword());
+
+            psmt.setInt(7, tableId);
+
+            int rowsAffected = psmt.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("User updated successfully.");
+            } else {
+                System.out.println("No records updated.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteUser(Integer tableId) {
+        String DELETE_USER_QUERY = "DELETE FROM users WHERE table_id =?";
+
+        try (Connection conn = DatabaseConnector.getUserConnection()) {
+            PreparedStatement psmt = conn.prepareStatement(DELETE_USER_QUERY);
+            psmt.setInt(1, tableId);
+            psmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 }
