@@ -11,7 +11,7 @@ public class Main extends Application{
     public void start(Stage primarysStage) throws Exception {
         FXMLViewer fxmlViewer = new FXMLViewer(primarysStage);
 
-        fxmlViewer.loadFXML(FXMLPath.MAIN);
+        fxmlViewer.loadFXML(FXMLPath.LOGIN);
 
     }
 

@@ -3,15 +3,14 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ncnl.balayanexpensewise.controller.HomeController"
-            minHeight="0.0" minWidth="0.0" prefHeight="841.0" prefWidth="1296.0">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="841.0" prefWidth="1296.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ncnl.balayanexpensewise.controller.HomeController">
 <children>
     <Label alignment="CENTER" layoutY="237.0" prefHeight="54.0" prefWidth="1301.0" text="their savings goals. Take charge of your finances and build a smarter path toward financial">
         <font>
@@ -70,17 +69,24 @@
             <DropShadow />
         </effect>
         <children>
-            <JFXButton buttonType="RAISED" layoutX="194.0" layoutY="288.0" style="-fx-background-color: #f2f2f2;" text="Check it out" />
             <Label alignment="CENTER" layoutY="14.0" prefHeight="24.0" prefWidth="289.0" text="User-Friendly Interface">
                 <font>
                     <Font name="Roboto Bold Condensed" size="15.0" />
                 </font>
             </Label>
-            <Label alignment="CENTER" layoutY="58.0" prefHeight="24.0" prefWidth="289.0" text="lorem ipsum">
+            <Label alignment="CENTER" layoutX="38.0" layoutY="209.0" prefHeight="134.0" prefWidth="213.0" text="&quot;Enjoy a simple, intuitive design that makes tracking your expenses and budgets straightforward.&quot;" textAlignment="CENTER" wrapText="true">
                 <font>
                     <Font name="Source Code Pro Bold" size="12.0" />
                 </font>
             </Label>
+            <ImageView fitHeight="161.0" fitWidth="269.0" layoutX="10.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/pic%204.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
         </children>
     </Pane>
     <Pane layoutX="351.0" layoutY="405.0" prefHeight="327.0" prefWidth="288.0" style="-fx-background-color: white;">
@@ -88,17 +94,24 @@
             <DropShadow />
         </effect>
         <children>
-            <JFXButton buttonType="RAISED" layoutX="194.0" layoutY="288.0" style="-fx-background-color: #f2f2f2;" text="Check it out" />
             <Label alignment="CENTER" layoutX="-3.0" layoutY="15.0" prefHeight="24.0" prefWidth="289.0" text="Real-Time Analysis">
                 <font>
                     <Font name="Roboto Bold Condensed" size="15.0" />
                 </font>
             </Label>
-            <Label alignment="CENTER" layoutY="59.0" prefHeight="24.0" prefWidth="289.0" text="lorem ipsum">
-                <font>
-                    <Font name="Source Code Pro Bold" size="12.0" />
-                </font>
+            <Label alignment="CENTER" layoutX="46.0" layoutY="208.0" prefHeight="134.0" prefWidth="213.0" text="&quot;Track your spending habits with live updates, helping you make smarter financial choices.&quot;" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
             </Label>
+            <ImageView fitHeight="164.0" fitWidth="250.0" layoutX="21.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/pic%201.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
         </children>
     </Pane>
     <Pane layoutX="643.0" layoutY="405.0" prefHeight="327.0" prefWidth="288.0" style="-fx-background-color: white;">
@@ -106,17 +119,25 @@
             <DropShadow />
         </effect>
         <children>
-            <JFXButton buttonType="RAISED" layoutX="194.0" layoutY="288.0" style="-fx-background-color: #f2f2f2;" text="Check it out" />
-            <Label alignment="CENTER" layoutY="15.0" prefHeight="24.0" prefWidth="289.0" text="Handle Reports">
+            <Label alignment="CENTER" layoutY="15.0" prefHeight="24.0" prefWidth="289.0" text="Edit with Ease">
                 <font>
                     <Font name="Roboto Bold Condensed" size="15.0" />
                 </font>
             </Label>
-            <Label alignment="CENTER" layoutY="61.0" prefHeight="24.0" prefWidth="289.0" text="lorem ipsum">
-                <font>
-                    <Font name="Source Code Pro Bold" size="12.0" />
-                </font>
+            <Label alignment="CENTER" layoutX="50.0" layoutY="211.0" prefHeight="134.0" prefWidth="213.0" text="Effortlessly modify and update your financial data, making managing your expenses easier than ever.&quot;" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
             </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="162.0" fitWidth="250.0" layoutX="19.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/pic%203.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
         </children>
     </Pane>
     <Pane layoutX="936.0" layoutY="405.0" prefHeight="327.0" prefWidth="288.0" style="-fx-background-color: white;">
@@ -124,17 +145,24 @@
             <DropShadow />
         </effect>
         <children>
-            <JFXButton buttonType="RAISED" layoutX="194.0" layoutY="288.0" style="-fx-background-color: #f2f2f2;" text="Check it out" />
             <Label alignment="CENTER" layoutY="14.0" prefHeight="24.0" prefWidth="289.0" text="Manage Organizations">
                 <font>
                     <Font name="Roboto Bold Condensed" size="15.0" />
                 </font>
             </Label>
-            <Label alignment="CENTER" layoutY="63.0" prefHeight="24.0" prefWidth="289.0" text="lorem ipsum">
-                <font>
-                    <Font name="Source Code Pro Bold" size="12.0" />
-                </font>
+            <Label alignment="CENTER" layoutX="48.0" layoutY="211.0" prefHeight="134.0" prefWidth="213.0" text="&quot;Effortlessly manage multiple organizations, allocate resources, and track their expenses.&quot;" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Source Code Pro Bold" size="12.0" />
+               </font>
             </Label>
+            <ImageView fitHeight="164.0" fitWidth="250.0" layoutX="20.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/pic%202.png" />
+               </image>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </ImageView>
         </children>
     </Pane>
 </children>

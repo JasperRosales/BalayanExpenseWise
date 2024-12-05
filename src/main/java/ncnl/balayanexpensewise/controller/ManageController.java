@@ -45,6 +45,7 @@ public class ManageController implements Initializable {
     @FXML
     private ToggleGroup modeGroup;
 
+
     @FXML
     private RadioButton updateMode, addMode, deleteMode, resignationMode;
 
@@ -61,6 +62,7 @@ public class ManageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         filterBox.getItems().addAll("SSC", "CICS", "CET");
+
 
         validateAuthButtons();
 
@@ -118,6 +120,7 @@ public class ManageController implements Initializable {
             exception.setDisable(false);
         }
     }
+
 
 
     public void validateAuthButtons(){
@@ -283,7 +286,5 @@ public class ManageController implements Initializable {
             AlarmUtils.showErrorAlert("Failed to find member: " + e.getMessage());
         }
     }
-
-
 
 }

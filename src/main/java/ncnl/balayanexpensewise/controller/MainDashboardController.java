@@ -72,9 +72,9 @@ public class MainDashboardController extends GenericController implements Initia
 
     private void applyDepartmentVisibility() {
         switch (department) {
-            case "CICS" -> removeTabs(tabAdmin, tabSSC, tabCET, tabCredits);
-            case "CET" -> removeTabs(tabAdmin, tabSSC, tabCICS, tabCredits);
-            default -> removeTabs(tabCredits);
+            case "CICS" -> removeTabs(tabAdmin, tabSSC, tabCET);
+            case "CET" -> removeTabs(tabAdmin, tabSSC, tabCICS);
+            default -> System.out.println("Displaying all tabs for " + department);
         }
     }
 

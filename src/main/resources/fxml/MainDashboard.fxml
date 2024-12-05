@@ -64,14 +64,6 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab fx:id="tabReport" text="Report">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <fx:include source="ReportPage.fxml" />
-                     </children></AnchorPane>
-               </content>
-            </Tab>
             <Tab fx:id="tabSchedule" text="Schedule">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -102,7 +94,7 @@
                                     <DropShadow />
                                  </effect>
                                  <image>
-                                    <Image url="@../../../../../../Downloads/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg" />
+                                    <Image url="@../images/cat%20pic.jpg" />
                                  </image>
                               </ImageView>
                               <Label layoutX="19.0" layoutY="276.0" prefHeight="25.0" prefWidth="54.0" text="Name:">
@@ -176,7 +168,7 @@
                                     <Font name="Source Code Pro Bold" size="14.0" />
                                  </font>
                               </Label>
-                              <TextArea editable="false" layoutX="22.0" layoutY="565.0" prefHeight="123.0" prefWidth="363.0" text="• Made the read_me file and repository&#10;• Created the backend system and services&#10;• Developed the admin and user logic&#10;• Implemented several system design method such as hashing, encryption and etc&#10;• Made the spring boot integration&#10;• Configured the database to be accessed public" wrapText="true">
+                              <TextArea editable="false" layoutX="22.0" layoutY="565.0" prefHeight="123.0" prefWidth="363.0" text="• Made the read_me file and repository&#10;• Created the backend system and services&#10;• Developed the admin and user logic&#10;• Implemented several system design method such as hashing, encryption and etc&#10;" wrapText="true">
                                  <font>
                                     <Font name="Source Code Pro" size="12.0" />
                                  </font></TextArea>
@@ -192,7 +184,7 @@
                                     <DropShadow />
                                  </effect>
                                  <image>
-                                    <Image url="@../../../../../../Downloads/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg" />
+                                    <Image url="@../images/cat%20pic.jpg" />
                                  </image>
                               </ImageView>
                               <Label alignment="CENTER" layoutX="-1.0" layoutY="705.0" prefHeight="25.0" prefWidth="409.0" text="Github">
@@ -236,7 +228,7 @@
                                     <Font name="Roboto Black" size="14.0" />
                                  </font>
                               </Label>
-                              <TextArea editable="false" layoutX="22.0" layoutY="566.0" prefHeight="123.0" prefWidth="363.0" text="• Developed the UI of the project&#10;• Designed the Dashboards and Panels&#10;• Help organized the data in charts&#10;• Customized the legends based on organization&#10;• Implemented Simple but Aesthetic design&#10;• Helped in the Spring boot UI extension for mobile/web for flexibility" wrapText="true">
+                              <TextArea editable="false" layoutX="22.0" layoutY="566.0" prefHeight="123.0" prefWidth="363.0" text="• Developed the UI of the project&#10;• Designed the Dashboards and Panels&#10;• Help organized the data in charts&#10;• Customized the legends based on organization&#10;• Implemented Simple but Aesthetic design&#10;" wrapText="true">
                                  <font>
                                     <Font name="Source Code Pro" size="12.0" />
                                  </font>
@@ -283,7 +275,7 @@
                                     <DropShadow />
                                  </effect>
                                  <image>
-                                    <Image url="@../../../../../../Downloads/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg" />
+                                    <Image url="@../images/cat%20pic.jpg" />
                                  </image>
                               </ImageView>
                               <Label alignment="CENTER" layoutX="-1.0" layoutY="708.0" prefHeight="25.0" prefWidth="409.0" text="Github">
